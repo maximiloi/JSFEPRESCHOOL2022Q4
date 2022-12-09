@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:300,regular,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Inika:regular,700&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Roboto:regular&display=swap);
 @charset "UTF-8";
 * {
   padding: 0px;
@@ -534,7 +533,7 @@ template {
 .welcome__container {
   display: flex;
   justify-content: flex-end;
-  background-image: url("../img/leafs.png");
+  background-image: url("../img/bg-leafs5.png");
   background-repeat: no-repeat;
   background-position: 4px -20px;
 }
@@ -571,7 +570,7 @@ template {
   background-color: #fff;
 }
 .about__container {
-  background-image: url("../img/houseplant.jpg");
+  background-image: url("../img/bg-houseplant.jpg");
   background-repeat: no-repeat;
   background-position: calc(100% - 15px) 95px;
 }
@@ -675,7 +674,7 @@ template {
 }
 .prices__container {
   padding-top: 40px;
-  padding-bottom: 120px;
+  padding-bottom: 128px;
   display: flex;
   justify-content: space-between;
 }
@@ -687,7 +686,7 @@ template {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background-image: url("../img/leafs4.jpg");
+  background-image: url("../img/bg-leafs4.jpg");
   background-repeat: no-repeat;
   background-position: calc(100% + 10px) calc(100% + 15px);
 }
@@ -701,7 +700,7 @@ template {
 .prices__box {
   max-width: 332px;
   width: 100%;
-  padding: 34px 41px;
+  padding: 33px 41px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
 }
@@ -751,7 +750,7 @@ template {
   background-position: calc(0% + 10px) 100%;
 }
 .contacts__title {
-  margin-top: 65px;
+  margin-top: 60px;
   font-family: "Inika";
   font-style: normal;
   font-weight: 700;
@@ -776,4 +775,32 @@ template {
   line-height: 40px;
   letter-spacing: 0.05em;
   color: #717171;
+}
+
+.footer {
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+  background-color: #ffffff;
+}
+.footer__container {
+  min-height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__inner {
+  display: flex;
+}
+.footer__info {
+  margin-right: 20px;
+}
+.footer__year {
+  margin-right: 20px;
+}
+.social {
+  align-items: center;
+}
+.social__item:not(:last-child) {
+  margin-right: 28px;
 }
