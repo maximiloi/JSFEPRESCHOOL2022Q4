@@ -566,3 +566,34 @@ template {
   text-transform: uppercase;
   line-height: 12px;
 }
+
+.about {
+  background-color: #fff;
+}
+.about__container {
+  background-image: url("../img/houseplant.jpg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 15px) 95px;
+}
+.about__title {
+  padding-top: 160px;
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+  color: #499a18;
+  max-width: 460px;
+  width: 100%;
+}
+.about__title span {
+  color: #e06733;
+}
+.about__text {
+  padding-bottom: 155px;
+  margin-top: 40px;
+  max-width: 605px;
+  width: 100%;
+  font-size: 20px;
+  line-height: 30px;
+}
