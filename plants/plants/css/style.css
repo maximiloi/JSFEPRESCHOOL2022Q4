@@ -669,3 +669,78 @@ template {
   margin-bottom: 36px;
   color: #717171;
 }
+
+.prices {
+  background-color: #ffffff;
+}
+.prices__container {
+  padding-top: 40px;
+  padding-bottom: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+.prices__inner:nth-child(1) {
+  max-width: 332px;
+  width: 100%;
+}
+.prices__inner:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-image: url("../img/leafs4.jpg");
+  background-repeat: no-repeat;
+  background-position: calc(100% + 10px) calc(100% + 15px);
+}
+.prices__title {
+  margin-bottom: 60px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000000;
+}
+.prices__box {
+  max-width: 332px;
+  width: 100%;
+  padding: 34px 41px;
+  border: 1px solid #e3e1d5;
+  border-radius: 20px;
+}
+.prices__text {
+  max-width: 452px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: right;
+  color: #000000;
+}
+.prices__text span {
+  color: #499a18;
+}
+.prices__button {
+  margin-top: 38px;
+  max-width: 161px;
+  width: 100%;
+  padding: 11px 30px;
+  border: 1px solid #e06733;
+  border-radius: 5px;
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #e06733;
+}
+
+.accordion__item {
+  padding: 15px 40px;
+  background: #edf2ec;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #000000;
+}
+.accordion__item:not(:last-child) {
+  margin-bottom: 32px;
+}
