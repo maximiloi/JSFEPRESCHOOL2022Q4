@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Inter:300,regular,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Inika:regular,700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Roboto:regular&display=swap);
-
+@charset "UTF-8";
 * {
   padding: 0px;
   margin: 0px;
@@ -23,7 +23,7 @@ body {
 body {
   color: #636060;
   line-height: 1;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: 1rem;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -35,7 +35,7 @@ body {
 input,
 button,
 textarea {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: inherit;
 }
 
@@ -101,7 +101,7 @@ h6 {
 Например header__container, main__container и т.д.
 Снипет (HTML): cnt
 */
-[class*='__container'] {
+[class*=__container] {
   max-width: 76.375rem;
   box-sizing: content-box;
   margin: 0 auto;
@@ -281,9 +281,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -291,9 +291,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -302,9 +302,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -348,8 +348,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -357,8 +357,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -366,7 +366,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -374,7 +374,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -419,10 +419,10 @@ template {
   display: none;
 }
 
-[class*='-ibg'] {
+[class*=-ibg] {
   position: relative;
 }
-[class*='-ibg'] img {
+[class*=-ibg] img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -431,12 +431,12 @@ template {
   object-fit: cover;
 }
 
-[class*='-ibg_contain'] img {
+[class*=-ibg_contain] img {
   object-fit: contain;
 }
 
 .header {
-  font-family: 'Inika';
+  font-family: "Inika";
   font-style: normal;
   font-weight: 400;
 }
@@ -527,3 +527,42 @@ template {
 	}
 }
 */
+.welcome {
+  margin-top: 8.125em;
+  margin-bottom: 5.8125em;
+}
+.welcome__container {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("../img/leafs.png");
+  background-repeat: no-repeat;
+  background-position: 4px -20px;
+}
+.welcome__wrapper {
+  max-width: 34.375em;
+  width: 100%;
+}
+.welcome__title {
+  display: block;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 50px;
+  color: #717171;
+}
+.welcome__title span {
+  color: #499a18;
+}
+.welcome__text {
+  max-width: 525px;
+  margin-top: 42px;
+  font-size: 20px;
+  line-height: 35px;
+}
+.welcome__button {
+  margin-top: 48px;
+  padding: 14px 27px;
+  border: 2px solid #e06733;
+  border-radius: 10px;
+  text-transform: uppercase;
+  line-height: 12px;
+}
