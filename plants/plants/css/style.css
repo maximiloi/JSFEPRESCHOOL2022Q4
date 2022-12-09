@@ -434,6 +434,14 @@ template {
   object-fit: contain;
 }
 
+.button {
+  transition: all 0.3s ease;
+}
+.button:hover {
+  color: #ffffff;
+  background-color: #e06733;
+}
+
 .header {
   font-family: "Inika";
   font-style: normal;
@@ -474,6 +482,12 @@ template {
 .nav__item {
   font-size: 1em;
   line-height: 0.75em;
+}
+.nav__link {
+  transition: all 0.3s ease;
+}
+.nav__link:hover {
+  color: #e06733;
 }
 .nav__link.active {
   font-weight: 700;
@@ -798,9 +812,29 @@ template {
 .footer__year {
   margin-right: 20px;
 }
+.footer__github {
+  transition: all 0.3s ease;
+}
+.footer__github:hover {
+  color: #e06733;
+}
+.footer__rss {
+  transition: all 0.3s ease;
+}
+.footer__rss:hover {
+  color: #e06733;
+}
+
 .social {
   align-items: center;
 }
 .social__item:not(:last-child) {
   margin-right: 28px;
+}
+.social__link svg path {
+  fill: black;
+  transition: all 0.3s ease;
+}
+.social__link svg path:hover {
+  fill: #e06733;
 }
