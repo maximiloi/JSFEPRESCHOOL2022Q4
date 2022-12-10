@@ -746,16 +746,106 @@ template {
 }
 
 .accordion__item {
-  padding: 15px 40px;
   background: #edf2ec;
   border-radius: 20px;
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
   color: #000000;
+  transition: background 0.3s ease;
+  overflow: hidden;
+  outline: none;
 }
 .accordion__item:not(:last-child) {
   margin-bottom: 32px;
+}
+.accordion__item:hover {
+  background: #d6e7d2;
+}
+.accordion__item[open] {
+  background: #d6e7d2;
+}
+.accordion__summary {
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transform: rotate(0deg);
+}
+.accordion__summary span {
+  height: 16px;
+}
+.accordion__summary span svg {
+  fill: #d9d9d9;
+  stroke: #717171;
+  transition: fill ease 1s, stroke ease 1s;
+}
+.accordion__summary::marker, .accordion__summary::-webkit-details-marker {
+  display: none;
+  content: "";
+}
+.accordion details[open] > summary {
+  border-radius: 20px;
+  background: #d6e7d2;
+}
+.accordion details[open] > summary span {
+  transform: rotate(180deg);
+  transition: transform ease 1s;
+}
+.accordion details[open] > summary span svg {
+  fill: #aea1a1;
+  stroke: #ffffff;
+  transition: fill ease 2s, stroke ease 2s;
+}
+.accordion details[open] > summary + .accordion__content {
+  border-radius: 20px;
+  border-top: none;
+}
+.accordion__content {
+  padding: 0 40px 12px;
+}
+.accordion__text {
+  padding-top: 6px;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #717171;
+  border-top: 1px solid #aea1a1;
+}
+.accordion__price {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}
+.accordion__price span {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #e06733;
+}
+.accordion__price span::before {
+  content: "$";
+  font-size: 12px;
+}
+.accordion__button {
+  margin-top: 15px;
+  padding: 3px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #717171;
+}
+
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: var(--details-translate, translateY(-1em));
+  }
+}
+details[open] > *:not(summary) {
+  animation: details-show 500ms ease-in-out;
 }
 
 .contacts__container {
