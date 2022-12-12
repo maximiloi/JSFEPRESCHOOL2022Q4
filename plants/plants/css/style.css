@@ -457,6 +457,7 @@ template {
 .logo {
   display: flex;
   align-items: flex-end;
+  padding: 0 15px 0 0;
 }
 .logo__img {
   width: 1.3125em;
@@ -471,8 +472,7 @@ template {
 }
 
 .nav {
-  max-width: 454px;
-  width: 100%;
+  padding: 0 0 0 15px;
 }
 .nav__list {
   display: flex;
@@ -482,6 +482,9 @@ template {
 .nav__item {
   font-size: 1em;
   line-height: 0.75em;
+}
+.nav__item:not(:last-child) {
+  margin-right: 48px;
 }
 .nav__link {
   transition: all 0.3s ease;
@@ -620,7 +623,7 @@ template {
   align-items: center;
 }
 .service__title {
-  margin-right: 140px;
+  margin-right: 138px;
   font-family: "Inika";
   font-style: normal;
   font-weight: 400;
@@ -702,7 +705,7 @@ template {
   align-items: flex-end;
   background-image: url("../img/bg-leafs4.jpg");
   background-repeat: no-repeat;
-  background-position: calc(100% + 10px) calc(100% + 15px);
+  background-position: calc(100% + 10px) 220px;
 }
 .prices__title {
   margin-bottom: 60px;
@@ -866,19 +869,104 @@ details[open] > *:not(summary) {
 .contacts__wrapper {
   display: flex;
   justify-content: flex-end;
+  padding-bottom: 350px;
 }
 .contacts__box {
   margin-top: 37px;
-  margin-bottom: 350px;
-  width: 450px;
-  padding: 5px 20px;
+  max-width: 450px;
+  width: 100%;
   background: #d6e7d2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 20px;
   letter-spacing: 0.05em;
   color: #717171;
+}
+
+.select-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.select-box .options-container {
+  position: absolute;
+  top: 100%;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+  background: #d6e7d2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  order: 1;
+}
+
+.selected {
+  position: relative;
+  order: 0;
+  transition: background 0.3s ease;
+}
+.selected:hover {
+  background: #c1e698;
+}
+
+.selected::after {
+  content: "";
+  background: url(../img/icons/accordion_btn.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  right: 35px;
+  top: 17px;
+  transition: all 0.5s;
+}
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+}
+
+.select-box .options-container.active + .selected {
+  background: #c1e698;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotate(180deg);
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select-box .option,
+.selected {
+  padding: 15px 35px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.select-box label {
+  width: 100%;
+  padding-bottom: 5px;
+  color: #499a18;
+  cursor: pointer;
+  border-bottom: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+.select-box label:hover {
+  color: #717171;
+  border-bottom: 1px solid #717171;
+}
+
+.select-box .option .radio {
+  display: none;
 }
 
 .footer {
