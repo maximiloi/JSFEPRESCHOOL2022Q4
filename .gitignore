@@ -103,9 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
-plants/config
-plants/src
-plants/gulpfile.js
-plants/package.json
+# plants/config
+# plants/src
+# plants/gulpfile.js
+# plants/package.json
 plants/README.txt
 .DS_Store
