@@ -1,11 +1,18 @@
 .about {
   background-color: $whiteColor;
+  @media (max-width: $tablet) {
+    padding-bottom: 95px;
+  }
   // .about__container
 
   &__container {
     background-image: url('@img/bg-houseplant.jpg');
     background-repeat: no-repeat;
     background-position: calc(100% - 15px) 95px;
+    @media (max-width: $tablet) {
+      background-size: 250px 258px;
+      background-position: 50% 100%;
+    }
   }
 
   // .about__wrapper
@@ -28,6 +35,13 @@
     & span {
       color: $orangeColor;
     }
+    @media (max-width: $tablet) {
+      padding-top: 40px;
+      margin: 0 auto;
+      font-size: 35px;
+      line-height: 46px;
+      text-align: center;
+    }
   }
 
   // .about__text
@@ -39,5 +53,11 @@
     width: 100%;
     font-size: 20px;
     line-height: 30px;
+    @media (max-width: $tablet) {
+      margin: 0 auto;
+      margin-top: 50px;
+      padding-bottom: 325px;
+      max-width: 668px;
+    }
   }
 }

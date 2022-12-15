@@ -10,6 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: $tablet) {
+      margin-top: 35px;
+      margin-bottom: 35px;
+      flex-direction: column;
+      min-height: 125px;
+    }
   }
 
   // .footer__inner

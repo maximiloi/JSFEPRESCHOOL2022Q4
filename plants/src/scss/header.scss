@@ -11,6 +11,9 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-top: em(52);
+    @media (max-width: $tablet) {
+      margin-top: em(45);
+    }
   }
 
   // .header__logo

@@ -1,5 +1,5 @@
-const buildFolder = `./plants`; // Также можно использовать app.rootFolder
-// const buildFolder = `./plants-part2`;
+// const buildFolder = `./plants`; // Также можно использовать app.rootFolder
+const buildFolder = `./plants-part2`;
 const srcFolder = `./src`;
 
 export const path = {

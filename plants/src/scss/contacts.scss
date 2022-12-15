@@ -5,6 +5,10 @@
     background-image: url('@img/bg-contact.png');
     background-repeat: no-repeat;
     background-position: calc(0% + 10px) calc(100%);
+    @media (max-width: $tablet) {
+      background-size: 200px 250px;
+      background-position: calc(50% + 10px) calc(100%);
+    }
   }
 
   // .contacts__title
@@ -18,6 +22,9 @@
     line-height: 52px;
     color: $greenColor;
     text-align: center;
+    @media (max-width: $tablet) {
+      margin-top: 40px;
+    }
   }
 
   // .contacts__wrapper
@@ -26,6 +33,10 @@
     display: flex;
     justify-content: flex-end;
     padding-bottom: 350px;
+    @media (max-width: $tablet) {
+      justify-content: center;
+      padding-bottom: 500px;
+    }
   }
 
   // .contacts__box
@@ -41,6 +52,9 @@
     line-height: 20px;
     letter-spacing: 0.05em;
     color: $lightGrayColor;
+    @media (max-width: $tablet) {
+      margin-top: 100px;
+    }
   }
 }
 
