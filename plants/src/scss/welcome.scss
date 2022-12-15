@@ -1,0 +1,54 @@
+.welcome {
+  margin-top: em(130);
+  margin-bottom: em(93);
+  // .welcome__container
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    background-image: url('@img/bg-leafs5.png');
+    background-repeat: no-repeat;
+    background-position: 4px -20px;
+  }
+
+  // .welcome__wrapper
+  &__wrapper {
+    max-width: em(550);
+    width: 100%;
+  }
+
+  // .welcome__title
+
+  &__title {
+    display: block;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 50px;
+    color: $lightGrayColor;
+    & span {
+      color: $greenColor;
+    }
+  }
+
+  // .welcome__text
+
+  &__text {
+    max-width: 525px;
+    margin-top: 42px;
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  // .welcome__button
+
+  &__button {
+    margin-top: 48px;
+    padding: 14px 27px;
+    border: 2px solid #e06733;
+    border-radius: 10px;
+    text-transform: uppercase;
+    line-height: 12px;
+  }
+}
+// .button {
+// }
