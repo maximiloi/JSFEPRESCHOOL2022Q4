@@ -3,7 +3,7 @@
 // import { formsModules } from "./forms/forms.js";
 
 // console.log('Ваша оценка - 110 баллов');
-// console.log('');
+console.log('');
 // console.log('Отзыв по пунктам ТЗ:');
 // console.log('');
 // console.log('Выполненные пункты:');
