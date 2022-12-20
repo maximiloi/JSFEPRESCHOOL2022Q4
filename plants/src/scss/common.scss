@@ -1,6 +1,6 @@
 // Заголовки, общие БЄМ блоки и проче...
 .button {
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
   &:hover {
     color: $whiteColor;
     background-color: $orangeColor;
