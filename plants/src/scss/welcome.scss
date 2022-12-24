@@ -1,77 +1,99 @@
 .welcome {
-  margin-top: em(130);
-  margin-bottom: em(93);
-  @media (max-width: $tablet) {
-    margin-top: em(70);
-    margin-bottom: em(70);
-  }
-  // .welcome__container
-
-  &__container {
-    display: flex;
-    justify-content: flex-end;
-    background-image: url('@img/bg-leafs5.png');
-    background-repeat: no-repeat;
-    background-position: 4px -20px;
+    margin-top: em(130);
+    margin-bottom: em(93);
     @media (max-width: $tablet) {
-      justify-content: flex-start;
-      background-size: 280px;
-      background-position: 90% 20px;
+        margin-top: em(70);
+        margin-bottom: em(70);
     }
-  }
-
-  // .welcome__wrapper
-  &__wrapper {
-    max-width: rem(550);
-    width: 100%;
-    @media (max-width: $tablet) {
-      max-width: rem(350);
+    @media (max-width: $mobile) {
+        margin-top: em(45);
+        margin-bottom: 25px;
     }
-  }
+    // .welcome__container
 
-  // .welcome__title
-
-  &__title {
-    display: block;
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 50px;
-    color: $lightGrayColor;
-    & span {
-      color: $greenColor;
+    &__container {
+        display: flex;
+        justify-content: flex-end;
+        background-image: url('@img/bg-leafs5.png');
+        background-repeat: no-repeat;
+        background-position: 4px -20px;
+        @media (max-width: $tablet) {
+            justify-content: flex-start;
+            background-size: 280px;
+            background-position: 90% 20px;
+        }
+        @media (max-width: $mobile) {
+            background-image: none;
+        }
     }
-    @media (max-width: $tablet) {
-      font-size: 35px;
+
+    // .welcome__wrapper
+    &__wrapper {
+        max-width: rem(550);
+        width: 100%;
+        @media (max-width: $tablet) {
+            max-width: rem(350);
+        }
+        @media (max-width: $mobile) {
+            max-width: 100%;
+        }
     }
-  }
 
-  // .welcome__text
+    // .welcome__title
 
-  &__text {
-    max-width: 525px;
-    margin-top: 42px;
-    font-size: 20px;
-    line-height: 35px;
-    @media (max-width: $tablet) {
-      margin-top: 30px;
-      font-size: 16px;
-      line-height: 25px;
+    &__title {
+        display: block;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 50px;
+        color: $lightGrayColor;
+        & span {
+            color: $greenColor;
+        }
+        @media (max-width: $tablet) {
+            font-size: 35px;
+        }
+        @media (max-width: $mobile) {
+            font-size: 25px;
+            line-height: 35px;
+        }
     }
-  }
 
-  // .welcome__button
+    // .welcome__text
 
-  &__button {
-    margin-top: 48px;
-    padding: 14px 27px;
-    border: 2px solid #e06733;
-    border-radius: 10px;
-    text-transform: uppercase;
-    line-height: 12px;
-    @media (max-width: $tablet) {
-      margin-top: 35px;
+    &__text {
+        max-width: 525px;
+        margin-top: 42px;
+        font-size: 20px;
+        line-height: 35px;
+        @media (max-width: $tablet) {
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 25px;
+        }
+        @media (max-width: $mobile) {
+            margin-top: 20px;
+        }
     }
-  }
+
+    // .welcome__button
+
+    &__button {
+        margin-top: 48px;
+        padding: 14px 27px;
+        color: $blackColor;
+        border: 2px solid #e06733;
+        border-radius: 10px;
+        text-transform: uppercase;
+        line-height: 12px;
+        @media (max-width: $tablet) {
+            margin-top: 35px;
+        }
+        @media (max-width: $mobile) {
+            margin-top: 25px;
+            padding: 6px 16px;
+            font-size: 10px;
+            line-height: 20px;
+        }
+    }
 }
-// .button {
-// }

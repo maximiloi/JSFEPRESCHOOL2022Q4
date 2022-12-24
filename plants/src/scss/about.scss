@@ -1,63 +1,80 @@
 .about {
-  background-color: $whiteColor;
-  @media (max-width: $tablet) {
-    padding-bottom: 95px;
-  }
-  // .about__container
-
-  &__container {
-    background-image: url('@img/bg-houseplant.jpg');
-    background-repeat: no-repeat;
-    background-position: calc(100% - 15px) 95px;
+    background-color: $whiteColor;
     @media (max-width: $tablet) {
-      background-size: 250px 258px;
-      background-position: 50% 100%;
+        padding-bottom: 95px;
     }
-  }
-
-  // .about__wrapper
-
-  //   &__wrapper {
-  //   }
-
-  // .about__title
-
-  &__title {
-    padding-top: 160px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 52px;
-    color: $greenColor;
-    max-width: 460px;
-    width: 100%;
-    & span {
-      color: $orangeColor;
+    @media (max-width: $mobile) {
+        padding-bottom: 30px;
     }
-    @media (max-width: $tablet) {
-      padding-top: 40px;
-      margin: 0 auto;
-      font-size: 35px;
-      line-height: 46px;
-      text-align: center;
-    }
-  }
+    // .about__container
 
-  // .about__text
-
-  &__text {
-    padding-bottom: 155px;
-    margin-top: 40px;
-    max-width: 605px;
-    width: 100%;
-    font-size: 20px;
-    line-height: 30px;
-    @media (max-width: $tablet) {
-      margin: 0 auto;
-      margin-top: 50px;
-      padding-bottom: 325px;
-      max-width: 668px;
+    &__container {
+        background-image: url('@img/bg-houseplant.jpg');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 15px) 95px;
+        @media (max-width: $tablet) {
+            background-size: 250px 258px;
+            background-position: 50% 100%;
+        }
+        @media (max-width: $mobile) {
+            background-size: 150px 147px;
+        }
     }
-  }
+
+    // .about__wrapper
+
+    //   &__wrapper {
+    //   }
+
+    // .about__title
+
+    &__title {
+        padding-top: 160px;
+        font-family: 'Inika';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 52px;
+        color: $greenColor;
+        max-width: 460px;
+        width: 100%;
+        & span {
+            color: $orangeColor;
+        }
+        @media (max-width: $tablet) {
+            padding-top: 40px;
+            margin: 0 auto;
+            font-size: 35px;
+            line-height: 46px;
+            text-align: center;
+        }
+        @media (max-width: $mobile) {
+            padding-top: 28px;
+            font-size: 25px;
+            line-height: 33px;
+        }
+    }
+
+    // .about__text
+
+    &__text {
+        padding-bottom: 155px;
+        margin-top: 40px;
+        max-width: 605px;
+        width: 100%;
+        font-size: 20px;
+        line-height: 30px;
+        @media (max-width: $tablet) {
+            margin: 0 auto;
+            margin-top: 50px;
+            padding-bottom: 325px;
+            max-width: 668px;
+        }
+        @media (max-width: $mobile) {
+            margin-top: 13px;
+            padding-bottom: 153px;
+            font-size: 15px;
+            line-height: 25px;
+        }
+    }
 }

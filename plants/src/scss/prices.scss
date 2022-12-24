@@ -1,232 +1,265 @@
 .prices {
-  background-color: $whiteColor;
-  // .prices__container
+    background-color: $whiteColor;
+    // .prices__container
 
-  &__container {
-    padding-top: 40px;
-    padding-bottom: 128px;
-    display: flex;
-    justify-content: space-between;
-    @media (max-width: $tablet) {
-      padding-bottom: 75px;
+    &__container {
+        padding-top: 40px;
+        padding-bottom: 128px;
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: $tablet) {
+            padding-bottom: 75px;
+        }
+        @media (max-width: $mobile) {
+            padding-top: 23px;
+            padding-bottom: 40px;
+            flex-direction: column;
+        }
     }
-  }
 
-  // .prices__inner
+    // .prices__inner
 
-  &__inner {
-    &:nth-child(1) {
-      max-width: 332px;
-      width: 100%;
+    &__inner {
+        @media (max-width: $mobile) {
+            margin: 0 auto;
+        }
+        &:nth-child(1) {
+            max-width: 332px;
+            width: 100%;
+        }
+        &:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background-image: url('@img/bg-leafs4.jpg');
+            background-repeat: no-repeat;
+            background-position: calc(100% + 10px) 220px;
+            @media (max-width: $tablet) {
+                background-position: calc(100% + 10px) 275px;
+            }
+            @media (max-width: $mobile) {
+                background-image: none;
+                max-width: 230px;
+                align-items: center;
+            }
+        }
     }
-    &:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      background-image: url('@img/bg-leafs4.jpg');
-      background-repeat: no-repeat;
-      background-position: calc(100% + 10px) 220px;
-      @media (max-width: $tablet) {
-        background-position: calc(100% + 10px) 275px;
-      }
+
+    // .prices__title
+
+    &__title {
+        margin-bottom: 60px;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        color: $blackColor;
+        @media (max-width: $tablet) {
+            font-size: 35px;
+            line-height: 42px;
+        }
+        @media (max-width: $mobile) {
+            margin-bottom: 35px;
+            font-size: 25px;
+            line-height: 30px;
+            text-align: center;
+        }
     }
-  }
 
-  // .prices__title
+    // .prices__box
 
-  &__title {
-    margin-bottom: 60px;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 48px;
-    color: $blackColor;
-    @media (max-width: $tablet) {
-      font-size: 35px;
-      line-height: 42px;
+    &__box {
+        max-width: 332px;
+        width: 100%;
+        padding: 33px 41px;
+        border: 1px solid #e3e1d5;
+        border-radius: 20px;
     }
-  }
 
-  // .prices__box
+    // .prices__text
 
-  &__box {
-    max-width: 332px;
-    width: 100%;
-    padding: 33px 41px;
-    border: 1px solid #e3e1d5;
-    border-radius: 20px;
-  }
-
-  // .prices__text
-
-  &__text {
-    max-width: 452px;
-    width: 100%;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 50px;
-    text-align: right;
-    color: $blackColor;
-    & span {
-      color: $greenColor;
+    &__text {
+        max-width: 452px;
+        width: 100%;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: right;
+        color: $blackColor;
+        & span {
+            color: $greenColor;
+        }
+        @media (max-width: $tablet) {
+            font-size: 25px;
+            line-height: 35px;
+            margin-top: 100px;
+        }
+        @media (max-width: $mobile) {
+            font-size: 20px;
+            line-height: 35px;
+            text-align: center;
+            margin-top: 20px;
+        }
     }
-    @media (max-width: $tablet) {
-      font-size: 25px;
-      line-height: 35px;
-      margin-top: 100px;
-    }
-  }
 
-  // .prices__button
+    // .prices__button
 
-  &__button {
-    margin-top: 38px;
-    max-width: 161px;
-    width: 100%;
-    padding: 11px 30px;
-    border: 1px solid $orangeColor;
-    border-radius: 5px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
-    color: $orangeColor;
-    @media (max-width: $tablet) {
-      margin-top: 30px;
-      margin-bottom: 220px;
+    &__button {
+        margin-top: 38px;
+        max-width: 161px;
+        width: 100%;
+        padding: 11px 30px;
+        border: 1px solid $orangeColor;
+        border-radius: 5px;
+        font-family: 'Inika';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        color: $orangeColor;
+        @media (max-width: $tablet) {
+            margin-top: 30px;
+            margin-bottom: 220px;
+        }
+        @media (max-width: $mobile) {
+            margin-top: 20px;
+            margin-bottom: 0;
+            padding: 6px 20px;
+            max-width: 121px;
+            font-size: 15px;
+            line-height: 20px;
+        }
     }
-  }
 }
 .accordion {
-  // .accordion__item
+    // .accordion__item
 
-  &__item {
-    background: #edf2ec;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 20px;
-    color: $blackColor;
-    transition: background 0.3s ease;
-    overflow: hidden;
-    outline: none;
-    &:not(:last-child) {
-      margin-bottom: 32px;
+    &__item {
+        background: #edf2ec;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        color: $blackColor;
+        transition: background 0.3s ease;
+        overflow: hidden;
+        outline: none;
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+        &:hover {
+            background: $greyGreenColor;
+        }
+
+        &[open] {
+            background: $greyGreenColor;
+        }
     }
-    &:hover {
-      background: $greyGreenColor;
+
+    // .accordion__summary
+
+    &__summary {
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        & span {
+            height: 16px;
+            & svg {
+                fill: #d9d9d9;
+                stroke: $lightGrayColor;
+                transition: fill ease 1s, stroke ease 1s;
+            }
+        }
+        transform: rotate(0deg);
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+            content: '';
+        }
     }
 
-    &[open] {
-      background: $greyGreenColor;
+    details[open] > summary {
+        border-radius: 20px;
+        background: $greyGreenColor;
+        & span {
+            transform: rotate(180deg);
+            transition: transform ease 1s;
+            & svg {
+                fill: #aea1a1;
+                stroke: $whiteColor;
+                transition: fill ease 2s, stroke ease 2s;
+            }
+        }
+        & + .accordion__content {
+            border-radius: 20px;
+            border-top: none;
+        }
     }
-  }
 
-  // .accordion__summary
+    // details summary::-webkit-details-marker,
+    // details summary::marker {
+    //   display: none;
+    //   content: '';
+    // }
 
-  &__summary {
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+    // .accordion__content
 
-    & span {
-      height: 16px;
-      & svg {
-        fill: #d9d9d9;
-        stroke: $lightGrayColor;
-        transition: fill ease 1s, stroke ease 1s;
-      }
+    &__content {
+        padding: 0 40px 12px;
     }
-    transform: rotate(0deg);
-    &::marker,
-    &::-webkit-details-marker {
-      display: none;
-      content: '';
+
+    // .accordion__text
+
+    &__text {
+        padding-top: 6px;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 10px;
+        color: $lightGrayColor;
+        border-top: 1px solid #aea1a1;
     }
-  }
 
-  details[open] > summary {
-    border-radius: 20px;
-    background: $greyGreenColor;
-    & span {
-      transform: rotate(180deg);
-      transition: transform ease 1s;
-      & svg {
-        fill: #aea1a1;
-        stroke: $whiteColor;
-        transition: fill ease 2s, stroke ease 2s;
-      }
-    }
-    & + .accordion__content {
-      border-radius: 20px;
-      border-top: none;
-    }
-  }
+    // .accordion__price
 
-  // details summary::-webkit-details-marker,
-  // details summary::marker {
-  //   display: none;
-  //   content: '';
-  // }
-
-  // .accordion__content
-
-  &__content {
-    padding: 0 40px 12px;
-  }
-
-  // .accordion__text
-
-  &__text {
-    padding-top: 6px;
-    font-weight: 300;
-    font-size: 10px;
-    line-height: 10px;
-    color: $lightGrayColor;
-    border-top: 1px solid #aea1a1;
-  }
-
-  // .accordion__price
-
-  &__price {
-    margin-top: 6px;
-    font-size: 12px;
-    line-height: 20px;
-    color: $blackColor;
-    & span {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 20px;
-      color: $orangeColor;
-      &::before {
-        content: '$';
+    &__price {
+        margin-top: 6px;
         font-size: 12px;
-      }
+        line-height: 20px;
+        color: $blackColor;
+        & span {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: $orangeColor;
+            &::before {
+                content: '$';
+                font-size: 12px;
+            }
+        }
     }
-  }
 
-  // .accordion__button
+    // .accordion__button
 
-  &__button {
-    margin-top: 15px;
-    padding: 3px 20px;
-    background: $whiteColor;
-    border-radius: 10px;
-    font-size: 14px;
-    color: $lightGrayColor;
-  }
+    &__button {
+        margin-top: 15px;
+        padding: 3px 20px;
+        background: $whiteColor;
+        border-radius: 10px;
+        font-size: 14px;
+        color: $lightGrayColor;
+    }
 }
 // .button {
 // }
 @keyframes details-show {
-  from {
-    opacity: 0;
-    transform: var(--details-translate, translateY(-1em));
-  }
+    from {
+        opacity: 0;
+        transform: var(--details-translate, translateY(-1em));
+    }
 }
 
 details[open] > *:not(summary) {
-  animation: details-show 500ms ease-in-out;
+    animation: details-show 500ms ease-in-out;
 }
