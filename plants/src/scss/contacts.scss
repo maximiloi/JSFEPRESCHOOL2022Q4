@@ -10,6 +10,7 @@
             background-position: calc(50% + 10px) calc(100%);
         }
         @media (max-width: $mobile) {
+            padding: 0 40px;
             background-size: 100px 125px;
             background-position: calc(50%) calc(100%);
         }
@@ -115,6 +116,10 @@
     top: 17px;
 
     transition: all 0.5s;
+
+    @media (max-width: $mobile) {
+        right: 20px;
+    }
 }
 
 .select-box .options-container.active {
@@ -145,6 +150,9 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    @media (max-width: $mobile) {
+        padding: 15px 20px;
+    }
 }
 
 // .select-box .option:hover {

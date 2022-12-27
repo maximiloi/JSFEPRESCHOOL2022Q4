@@ -11,8 +11,7 @@
             padding-bottom: 75px;
         }
         @media (max-width: $mobile) {
-            padding-top: 23px;
-            padding-bottom: 40px;
+            padding: 23px 77px 40px;
             flex-direction: column;
         }
     }
@@ -73,6 +72,9 @@
         padding: 33px 41px;
         border: 1px solid #e3e1d5;
         border-radius: 20px;
+        @media (max-width: $mobile) {
+            padding: 29px 22px;
+        }
     }
 
     // .prices__text
@@ -94,10 +96,10 @@
             margin-top: 100px;
         }
         @media (max-width: $mobile) {
+            margin-top: 18px;
             font-size: 20px;
             line-height: 35px;
             text-align: center;
-            margin-top: 20px;
         }
     }
 
@@ -145,6 +147,9 @@
         outline: none;
         &:not(:last-child) {
             margin-bottom: 32px;
+            @media (max-width: $mobile) {
+                margin-bottom: 13px;
+            }
         }
         &:hover {
             background: $greyGreenColor;
@@ -163,14 +168,17 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+        @media (max-width: $mobile) {
+            padding: 16px 30px 15px;
+            font-size: 15px;
+            line-height: 20px;
+        }
 
-        & span {
+        & svg {
             height: 16px;
-            & svg {
-                fill: #d9d9d9;
-                stroke: $lightGrayColor;
-                transition: fill ease 1s, stroke ease 1s;
-            }
+            fill: #d9d9d9;
+            stroke: $lightGrayColor;
+            transition: fill ease 1s, stroke ease 1s;
         }
         transform: rotate(0deg);
         &::marker,
@@ -208,6 +216,9 @@
 
     &__content {
         padding: 0 40px 12px;
+        @media (max-width: $mobile) {
+            padding: 0 20px 12px;
+        }
     }
 
     // .accordion__text

@@ -31,6 +31,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.menu-open body {
+  overflow: hidden;
+}
 
 input,
 button,
@@ -494,6 +497,7 @@ template {
 }
 
 .nav {
+  position: relative;
   padding: 0 0 0 15px;
 }
 .nav__list {
@@ -503,7 +507,19 @@ template {
 }
 @media (max-width: 43.74875em) {
   .nav__list {
-    display: none;
+    display: block;
+    position: absolute;
+    height: 398px;
+    width: 250px;
+    margin-top: 10px;
+    padding-top: 10px;
+    top: -44px;
+    background-color: rgb(214, 231, 210);
+    transform: translateX(30%);
+    transition: all 1s ease-in-out;
+  }
+  .menu-open .nav__list {
+    transform: translateX(-60%);
   }
 }
 .nav__item {
@@ -512,6 +528,16 @@ template {
 }
 .nav__item:not(:last-child) {
   margin-right: 48px;
+}
+@media (max-width: 43.74875em) {
+  .nav__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 43.74875em) {
+  .nav__item {
+    padding: 8px 16px;
+  }
 }
 .nav__link {
   transition: all 0.3s ease;
@@ -803,7 +829,7 @@ template {
 }
 @media (max-width: 65.62375em) {
   .service__title {
-    margin-bottom: 40px;
+    margin-bottom: 43px;
     margin-right: 0;
     font-size: 35px;
     line-height: 46px;
@@ -866,20 +892,18 @@ template {
 @media (max-width: 65.62375em) {
   .service__list {
     margin-top: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 40px 106px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 38px 106px;
   }
 }
 @media (max-width: 43.74875em) {
   .service__list {
-    grid-template-columns: repeat(auto-fit, 280px);
-    grid-gap: 35px 0;
+    display: block;
   }
 }
 .service__item {
   aspect-ratio: 1/1;
   pointer-events: auto;
-  transition: opacity 300ms;
   border-radius: 20px 20px 0px 0px;
   text-align: center;
 }
@@ -888,6 +912,15 @@ template {
   width: 100%;
   height: 350px;
   object-fit: cover;
+}
+@media (max-width: 43.74875em) {
+  .service__item {
+    margin: 0 auto;
+    width: 280px;
+  }
+  .service__item:not(:last-child) {
+    margin-bottom: 35px;
+  }
 }
 .service__inner {
   border: 1px solid #e3e1d5;
@@ -903,12 +936,15 @@ template {
 }
 .service__text {
   margin-top: 16px;
-  margin-bottom: 36px;
+  margin-bottom: 33px;
   color: #717171;
+  font-size: 16px;
+  line-height: 20px;
 }
 @media (max-width: 65.62375em) {
   .service__text {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 18px;
   }
 }
 
@@ -928,8 +964,7 @@ template {
 }
 @media (max-width: 43.74875em) {
   .prices__container {
-    padding-top: 23px;
-    padding-bottom: 40px;
+    padding: 23px 77px 40px;
     flex-direction: column;
   }
 }
@@ -990,6 +1025,11 @@ template {
   border: 1px solid #e3e1d5;
   border-radius: 20px;
 }
+@media (max-width: 43.74875em) {
+  .prices__box {
+    padding: 29px 22px;
+  }
+}
 .prices__text {
   max-width: 452px;
   width: 100%;
@@ -1011,10 +1051,10 @@ template {
 }
 @media (max-width: 43.74875em) {
   .prices__text {
+    margin-top: 18px;
     font-size: 20px;
     line-height: 35px;
     text-align: center;
-    margin-top: 20px;
   }
 }
 .prices__button {
@@ -1062,6 +1102,11 @@ template {
 .accordion__item:not(:last-child) {
   margin-bottom: 32px;
 }
+@media (max-width: 43.74875em) {
+  .accordion__item:not(:last-child) {
+    margin-bottom: 13px;
+  }
+}
 .accordion__item:hover {
   background: #d6e7d2;
 }
@@ -1076,10 +1121,15 @@ template {
   cursor: pointer;
   transform: rotate(0deg);
 }
-.accordion__summary span {
-  height: 16px;
+@media (max-width: 43.74875em) {
+  .accordion__summary {
+    padding: 16px 30px 15px;
+    font-size: 15px;
+    line-height: 20px;
+  }
 }
-.accordion__summary span svg {
+.accordion__summary svg {
+  height: 16px;
   fill: #d9d9d9;
   stroke: #717171;
   transition: fill ease 1s, stroke ease 1s;
@@ -1107,6 +1157,11 @@ template {
 }
 .accordion__content {
   padding: 0 40px 12px;
+}
+@media (max-width: 43.74875em) {
+  .accordion__content {
+    padding: 0 20px 12px;
+  }
 }
 .accordion__text {
   padding-top: 6px;
@@ -1164,6 +1219,7 @@ details[open] > *:not(summary) {
 }
 @media (max-width: 43.74875em) {
   .contacts__container {
+    padding: 0 40px;
     background-size: 100px 125px;
     background-position: 50% 100%;
   }
@@ -1269,6 +1325,11 @@ details[open] > *:not(summary) {
   top: 17px;
   transition: all 0.5s;
 }
+@media (max-width: 43.74875em) {
+  .selected::after {
+    right: 20px;
+  }
+}
 
 .select-box .options-container.active {
   max-height: 240px;
@@ -1295,6 +1356,12 @@ details[open] > *:not(summary) {
   justify-content: space-between;
   align-items: center;
   position: relative;
+}
+@media (max-width: 43.74875em) {
+  .select-box .option,
+  .selected {
+    padding: 15px 20px;
+  }
 }
 
 .select-box label {
