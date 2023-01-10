@@ -103,6 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
+
+# Picture for Perfect Pixels
+plants/src/img/pp 
+
 # plants/config
 # plants/src
 # plants/gulpfile.js
