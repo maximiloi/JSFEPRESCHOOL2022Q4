@@ -989,6 +989,7 @@ details[open] > :not(summary) {
         margin-bottom: 18px;
     }
     .prices__container {
+        padding-top: 40px;
         padding-bottom: 75px;
     }
     .prices__inner:nth-child(2) {
@@ -1272,14 +1273,19 @@ details[open] > :not(summary) {
     }
 }
 .webp .welcome__container {
-    background-image: none;
+    background-image: url(../img/bg-leafs5.webp);
 }
 .webp .about__container {
     background-image: url(../img/bg-houseplant.webp);
 }
 .webp .prices__inner:nth-child(2) {
-    background-image: none;
+    background-image: url(../img/bg-leafs4.webp);
 }
 .webp .contacts__container {
     background-image: url(../img/bg-contact.webp);
+}
+@media (max-width: 43.74875em) {
+    .webp .welcome__container {
+        background-image: none;
+    }
 }
