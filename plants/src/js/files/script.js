@@ -46,6 +46,41 @@ const setAdress = (city) => {
     }
 };
 
+const addFilterInstallation = () => {
+    const serviceButton = document.querySelectorAll('.service__button');
+    const serviceItem = document.querySelectorAll('.service__item');
+
+    let filterArray = []; // вспомогательный класс
+
+    // проверяем кнопки, есть ли у них класс актив, если нет, добавляем их в массив
+    serviceButton.forEach((button) => {
+        if (!button.closest('.active')) {
+            filterArray.push(button.innerHTML);
+        }
+    });
+
+    // удаляем (обнуляем) фильтр со всех карточек
+    serviceItem.forEach((item) => {
+        item.classList.remove('filter');
+    });
+
+    // проверяем массив и добавляем карточкам класс фильтр
+    filterArray.forEach((filterValue) => {
+        serviceItem.forEach((item) => {
+            if (filterValue === item.dataset.filter) {
+                item.classList.add('filter');
+            }
+        });
+    });
+
+    // если в массиве значений столько же сколько кнопок, убираем фильтр со всех карточек
+    if (filterArray.length === 3) {
+        serviceItem.forEach((item) => {
+            item.classList.remove('filter');
+        });
+    }
+};
+
 const documentActions = (e) => {
     const targetElem = e.target;
     // console.log('%c [ targetElem ]-29', 'font-size:13px; background:pink; color:#bf2c9f;', targetElem);
@@ -66,6 +101,12 @@ const documentActions = (e) => {
         document.documentElement.classList.remove('menu-open');
     }
 
+    // Клик на сервис__кнопке
+    if (targetElem.closest('.service__button')) {
+        targetElem.classList.toggle('active');
+        addFilterInstallation();
+    }
+
     // Работа с дропменю в контактах
     if (targetElem.closest('.selected')) {
         document.querySelector('.options-container').classList.toggle('active');
@@ -79,20 +120,3 @@ const documentActions = (e) => {
 };
 
 document.addEventListener('click', documentActions);
-
-// const selected = document.querySelector('.selected');
-// const optionsContainer = document.querySelector('.options-container');
-
-// selected.addEventListener('click', () => {
-//     optionsContainer.classList.toggle('active');
-// });
-
-// const optionsList = document.querySelectorAll('.option');
-
-// optionsList.forEach((o) => {
-//     o.addEventListener('click', () => {
-//         document.querySelector('.selected').innerHTML = o.querySelector('label').innerHTML;
-//         document.querySelector('.options-container').classList.remove('active');
-//         setAdress(o.querySelector('label').dataset.city);
-//     });
-// });

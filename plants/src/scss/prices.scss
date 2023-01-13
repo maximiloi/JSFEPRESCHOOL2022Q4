@@ -191,14 +191,12 @@
     details[open] > summary {
         border-radius: 20px;
         background: $greyGreenColor;
-        & span {
+        & svg {
+            fill: #aea1a1;
+            stroke: $whiteColor;
+            transition: fill ease 2s, stroke ease 2s;
             transform: rotate(180deg);
             transition: transform ease 1s;
-            & svg {
-                fill: #aea1a1;
-                stroke: $whiteColor;
-                transition: fill ease 2s, stroke ease 2s;
-            }
         }
         & + .accordion__content {
             border-radius: 20px;

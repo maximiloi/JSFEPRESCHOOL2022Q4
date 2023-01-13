@@ -47,7 +47,8 @@
         flex-direction: column;
         padding-bottom: 350px;
         @media (max-width: $tablet) {
-            justify-content: center;
+            // justify-content: center;
+            align-content: center;
             padding-bottom: 500px;
         }
         @media (max-width: $mobile) {
@@ -89,6 +90,16 @@
         border: 1px solid #000000;
         border-radius: 20px;
         padding: 17px 35px 32px 35px;
+        @media (max-width: $tablet) {
+            // position: relative;
+            top: 170px;
+            right: calc(50% - 450px / 2);
+        }
+        @media (max-width: $mobile) {
+            position: relative;
+            top: 30px;
+            right: calc(50% - 300px / 2);
+        }
     }
 }
 
@@ -129,6 +140,9 @@
         }
         &:nth-child(2) {
             color: #717171;
+            @media (max-width: $mobile) {
+                flex-shrink: 0;
+            }
         }
     }
 
