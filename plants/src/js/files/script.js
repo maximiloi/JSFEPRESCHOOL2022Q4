@@ -28,6 +28,10 @@ optionsList.forEach((o) => {
         selected.innerHTML = o.querySelector('label').innerHTML;
         optionsContainer.classList.remove('active');
     });
+    o.addEventListener('click', () => {
+        selected.innerHTML = o.querySelector('label').innerHTML;
+        optionsContainer.classList.remove('active');
+    });
 });
 
 const documentActions = (e) => {
