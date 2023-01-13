@@ -1,72 +1,83 @@
 .footer {
-  font-size: 20px;
-  line-height: 20px;
-  color: $blackColor;
-  background-color: $whiteColor;
-  // .footer__container
+    font-size: 20px;
+    line-height: 20px;
+    color: $blackColor;
+    background-color: $whiteColor;
+    // .footer__container
 
-  &__container {
-    min-height: 130px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  // .footer__inner
-
-  &__inner {
-    display: flex;
-  }
-
-  // .footer__info
-
-  &__info {
-    margin-right: 20px;
-  }
-
-  // .footer__year
-
-  &__year {
-    margin-right: 20px;
-  }
-
-  // .footer__github
-
-  &__github {
-    transition: all 0.3s ease;
-    &:hover {
-      color: $orangeColor;
+    &__container {
+        min-height: 130px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: $tablet) {
+            margin-top: 35px;
+            margin-bottom: 35px;
+            flex-direction: column;
+            min-height: 125px;
+        }
+        @media (max-width: $mobile) {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            min-height: 105px;
+        }
     }
-  }
 
-  // .footer__rss
+    // .footer__inner
 
-  &__rss {
-    transition: all 0.3s ease;
-    &:hover {
-      color: $orangeColor;
+    &__inner {
+        display: flex;
     }
-  }
+
+    // .footer__info
+
+    &__info {
+        margin-right: 20px;
+    }
+
+    // .footer__year
+
+    &__year {
+        margin-right: 20px;
+    }
+
+    // .footer__github
+
+    &__github {
+        transition: all 0.3s ease;
+        &:hover {
+            color: $orangeColor;
+        }
+    }
+
+    // .footer__rss
+
+    &__rss {
+        transition: all 0.3s ease;
+        &:hover {
+            color: $orangeColor;
+        }
+    }
 }
 .social {
-  align-items: center;
-  // .social__item
+    align-items: center;
+    // .social__item
 
-  &__item {
-    &:not(:last-child) {
-      margin-right: 28px;
+    &__item {
+        &:not(:last-child) {
+            margin-right: 28px;
+        }
     }
-  }
 
-  // .social__link
+    // .social__link
 
-  &__link {
-    & svg path {
-      fill: black;
-      transition: all 0.3s ease;
-      &:hover {
-        fill: $orangeColor;
-      }
+    &__link {
+        & svg path {
+            fill: black;
+            transition: all 0.3s ease;
+            &:hover {
+                fill: $orangeColor;
+            }
+        }
     }
-  }
 }
