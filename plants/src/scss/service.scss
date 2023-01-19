@@ -81,6 +81,22 @@
                 margin-bottom: 8px;
             }
         }
+        &:disabled {
+            border: 1px solid $grayColor;
+            background: #fff;
+            color: $grayColor;
+            cursor: no-drop;
+            opacity: 0.5;
+            transition: all 0.3s ease 0s;
+        }
+        // &:focus {
+        //     color: $whiteColor;
+        //     background-color: $orangeColor;
+        // }
+        // &:active {
+        //     color: $whiteColor;
+        //     background-color: $orangeColor;
+        // }
         &.active {
             color: $whiteColor;
             background-color: $orangeColor;
