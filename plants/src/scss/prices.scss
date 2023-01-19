@@ -130,6 +130,10 @@
             font-size: 15px;
             line-height: 20px;
         }
+        &:hover {
+            color: $whiteColor;
+            background-color: $orangeColor;
+        }
     }
 }
 .accordion {
@@ -252,8 +256,8 @@
     // .accordion__button
 
     &__button {
-        margin-top: 15px;
         padding: 3px 20px;
+        margin-top: 15px;
         background: $whiteColor;
         border-radius: 10px;
         font-size: 14px;

@@ -95,5 +95,9 @@
             font-size: 10px;
             line-height: 20px;
         }
+        &:hover {
+            color: $whiteColor;
+            background-color: $orangeColor;
+        }
     }
 }
