@@ -11,7 +11,8 @@
             padding-bottom: 75px;
         }
         @media (max-width: $mobile) {
-            padding: 23px 77px 40px;
+            padding-top: 23px;
+            padding-bottom: 40px;
             flex-direction: column;
         }
     }

@@ -44,7 +44,7 @@
     // .footer__github
 
     &__github {
-        transition: all 0.3s ease;
+        transition: color 0.3s ease;
         &:hover {
             color: $orangeColor;
         }
@@ -53,7 +53,7 @@
     // .footer__rss
 
     &__rss {
-        transition: all 0.3s ease;
+        transition: color 0.3s ease;
         &:hover {
             color: $orangeColor;
         }
@@ -74,7 +74,7 @@
     &__link {
         & svg path {
             fill: black;
-            transition: all 0.3s ease;
+            transition: fill 0.3s ease;
             &:hover {
                 fill: $orangeColor;
             }

@@ -16,6 +16,7 @@ const ADRESSES_LIST = {
     yonkers: ['Yonkers, NY', '+1 914 678 0003', '511 Warburton Ave'],
     sherrill: ['Sherrill, NY', '+1 315 908 0004', '14 WEST Noyes BLVD'],
 };
+const contactsContainer = document.querySelector('.contacts__container');
 
 // Установка адреса в меню
 const setAdress = (city) => {
@@ -25,9 +26,10 @@ const setAdress = (city) => {
 
     let count = 0;
 
-    if (adressBoxWrapper.closest('.none')) {
-        adressBoxWrapper.classList.remove('none');
-        adressBoxWrapper.classList.add('active');
+    adressBoxWrapper.classList.add('active');
+
+    if (window.innerWidth < 700) {
+        contactsContainer.style.backgroundImage = 'none';
     }
 
     for (const key in ADRESSES_LIST) {
@@ -38,6 +40,16 @@ const setAdress = (city) => {
             });
             adressButton.href = `tel:${ADRESSES_LIST[key][1].split(' ').join('')}`;
         }
+    }
+};
+
+// Картинка обой в секции контакоты
+window.onresize = function () {
+    const adressBoxActive = document.querySelector('.contacts__adress');
+    if (adressBoxActive.closest('.active') && window.innerWidth < 700) {
+        contactsContainer.style.backgroundImage = 'none';
+    } else {
+        contactsContainer.style.backgroundImage = 'url("../img/bg-contact.png")';
     }
 };
 
@@ -89,24 +101,20 @@ const addFilterInstallation = () => {
     }
 };
 
-const documentActions = (e) => {
-    const targetElem = e.target;
-    let accordionItems = document.querySelectorAll('.accordion__item');
+const documentActions = (event) => {
+    const targetElem = event.target;
     // console.log('%c [ targetElem ]-29', 'font-size:13px; background:pink; color:#bf2c9f;', targetElem);
 
-    // Работа с меню
-    // открываем меню и закрываем меню
+    // Открываем или закрываем меню по кнопке бургера
     if (targetElem.closest('.nav__burger')) {
         document.documentElement.classList.toggle('menu-open');
     }
 
-    // Клик по выбранной ссылке
-    if (targetElem.closest('.nav__link')) {
-        document.documentElement.classList.remove('menu-open');
-    }
-
-    // Если клик на любом другом поле
-    if (!targetElem.closest('.nav__burger') && !targetElem.closest('.nav__list')) {
+    // Если клик на ссылке или любом другом месте
+    if (
+        targetElem.closest('.nav__link') ||
+        (!targetElem.closest('.nav__burger') && !targetElem.closest('.nav__list'))
+    ) {
         document.documentElement.classList.remove('menu-open');
     }
 
@@ -118,6 +126,7 @@ const documentActions = (e) => {
 
     // Работа с дропменю в прайсах
     if (targetElem.closest('.accordion__summary')) {
+        const accordionItems = document.querySelectorAll('.accordion__item');
         if (!targetElem.parentElement.open) {
             accordionItems.forEach((item) => {
                 item.open = false;

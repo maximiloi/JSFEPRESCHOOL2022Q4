@@ -89,14 +89,6 @@
             opacity: 0.5;
             transition: all 0.3s ease 0s;
         }
-        // &:focus {
-        //     color: $whiteColor;
-        //     background-color: $orangeColor;
-        // }
-        // &:active {
-        //     color: $whiteColor;
-        //     background-color: $orangeColor;
-        // }
         &.active {
             color: $whiteColor;
             background-color: $orangeColor;
@@ -108,15 +100,18 @@
     &__list {
         margin-top: 78px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        grid-template-columns: repeat(auto-fill, 330px);
+        // grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
         grid-gap: 55px 116px;
+        justify-content: space-evenly;
         pointer-events: none;
         // &:hover .service__item:not(:hover) {
         //     opacity: 0.3;
         // }
         @media (max-width: $tablet) {
             margin-top: 40px;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, 280px);
+            // grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-gap: 38px 106px;
         }
         @media (max-width: $mobile) {
