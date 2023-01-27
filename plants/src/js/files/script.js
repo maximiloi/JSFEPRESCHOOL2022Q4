@@ -1,57 +1,133 @@
 // Импорт функционала ========================================================================================================================
 // import { isMobile } from './functions.js';
 // import { formsModules } from "./forms/forms.js";
+
 console.log('');
-console.log('Ваша оценка - 81 баллов');
-console.log('');
-console.log('Частично выполненные пункты:');
-console.log(
-    'Вёрстка соответствует макету. Ширина экрана 768px +4\n1) Секция prices\nОтзыв: слово прайс уезжает\n2) Секция contacts\nОтзыв: Слово city уезжает'
-);
+console.log('Ваша оценка - 125 баллов');
 console.log('');
 console.log('Выполненные пункты:');
 console.log(
-    'Вёрстка соответствует макету. Ширина экрана 768px +16\n1) Блок header\n2) Секция welcome\n3) Секция about\n4) Секция service\n5) Блок footer\n\nВёрстка соответствует макету. Ширина экрана 380px +24\n6) Блок header\n7) Секция welcome\n8) Секция about\n9) Секция service\n10) Секция prices\n11) Секция contacts\n12) Блок footer\n\nНи на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +15\n13) нет полосы прокрутки при ширине страницы от 1440рх до 380px\n14) нет полосы прокрутки при ширине страницы от 380px до 320рх\n\nНа ширине экрана 380рх и меньше реализовано адаптивное меню +22\n15) при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка\n16) при нажатии на бургер-иконку плавно появляется адаптивное меню\n17) адаптивное меню соответствует цветовой схеме макета\n18) при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран\n19) ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям\n20) при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна'
+    '1) При выборе одной услуги (нажатии одной кнопки), остальные карточки услуг принимают эффект blur, выбранная услуга остается неизменной + 20\n2) Пользователь может нажать одновременно две кнопки услуги, тогда эта кнопка тоже принимает стиль активной и карточки с именем услуги выходят из эффекта blur. При этом пользователь не может нажать одновременно все три кнопки услуг. При повторном нажатии на активную кнопку она деактивируется (становится неактивной) а привязанные к ней позиции возвращаются в исходное состояние (входит в состяние blur если есть еще активная кнопка или же перестають быть в блюре если это была единственная нажатая кнопка). +20\n3) Анимации плавного перемещения кнопок в активное состояние и карточек услуг в эффект blur +10\n4) При нажатии на dropdown кнопку появляется описание тарифов цен в соответствии с макетом. Внутри реализована кнопка order, которая ведет на секцию contacts, при нажатии на нее Accordion все еще остается открытым. +25\n5) Пользователь может самостоятельно закрыть содержимое нажав на кнопку dropup, но не может одновременно открыть все тарифы услуг, при открытии нового тарифа предыдущее автоматически закрывается. +25\n6) В зависимости от выбора пользователя появляется блок с адресом и телефоном офиса в определенном городе +15\n7) При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу +10'
 );
 
-const selected = document.querySelector('.selected');
-const optionsContainer = document.querySelector('.options-container');
+const ADRESSES_LIST = {
+    canandaigua: ['Canandaigua, NY', '+1 585 393 0001', '151 Charlotte Street'],
+    newyorkcity: ['New York City', '+1 212 456 0002', '9 East 91st Street'],
+    yonkers: ['Yonkers, NY', '+1 914 678 0003', '511 Warburton Ave'],
+    sherrill: ['Sherrill, NY', '+1 315 908 0004', '14 WEST Noyes BLVD'],
+};
 
-const optionsList = document.querySelectorAll('.option');
+// Установка адреса в меню
+const setAdress = (city) => {
+    const contactsContainer = document.querySelector('.contacts__container');
+    const adressOutElem = contactsContainer.querySelectorAll('.adress-box__item--out');
+    const adressButton = contactsContainer.querySelector('.adress-box__button');
 
-selected.addEventListener('click', () => {
-    optionsContainer.classList.toggle('active');
-});
+    let count = 0;
 
-optionsList.forEach((o) => {
-    o.addEventListener('click', () => {
-        selected.innerHTML = o.querySelector('label').innerHTML;
-        optionsContainer.classList.remove('active');
+    contactsContainer.classList.add('adress-active');
+
+    for (const key in ADRESSES_LIST) {
+        if (key === city) {
+            adressOutElem.forEach((value) => {
+                value.innerHTML = ADRESSES_LIST[key][count];
+                count++;
+            });
+            adressButton.href = `tel:${ADRESSES_LIST[key][1].split(' ').join('')}`;
+        }
+    }
+};
+
+const addFilterInstallation = () => {
+    const serviceButton = document.querySelectorAll('.service__button');
+    const serviceItem = document.querySelectorAll('.service__item');
+
+    let filterArray = []; // вспомогательный класс
+
+    // проверяем кнопки, есть ли у них класс актив, если нет, добавляем их в массив
+    serviceButton.forEach((button) => {
+        if (!button.closest('.active')) {
+            filterArray.push(button.innerHTML);
+        }
     });
-    o.addEventListener('click', () => {
-        selected.innerHTML = o.querySelector('label').innerHTML;
-        optionsContainer.classList.remove('active');
-    });
-});
 
-const documentActions = (e) => {
-    const targetElem = e.target;
+    // Отключаем кнопки если выбрано два выбора
+    if (filterArray.length <= 1) {
+        serviceButton.forEach((button) => {
+            if (!button.closest('.active')) {
+                button.disabled = true;
+            }
+        });
+    } else {
+        serviceButton.forEach((button) => {
+            button.disabled = false;
+        });
+    }
+
+    // удаляем (обнуляем) фильтр со всех карточек
+    serviceItem.forEach((item) => {
+        item.classList.remove('filter');
+    });
+
+    // проверяем массив и добавляем карточкам класс фильтр
+    filterArray.forEach((filterValue) => {
+        serviceItem.forEach((item) => {
+            if (filterValue === item.dataset.filter) {
+                item.classList.add('filter');
+            }
+        });
+    });
+
+    // если в массиве значений столько же сколько кнопок, убираем фильтр со всех карточек
+    if (filterArray.length === 3) {
+        serviceItem.forEach((item) => {
+            item.classList.remove('filter');
+        });
+    }
+};
+
+const documentActions = (event) => {
+    const targetElem = event.target;
     // console.log('%c [ targetElem ]-29', 'font-size:13px; background:pink; color:#bf2c9f;', targetElem);
-    // Работа с меню
 
-    // открываем меню и закрываем меню
+    // Открываем или закрываем меню по кнопке бургера
     if (targetElem.closest('.nav__burger')) {
         document.documentElement.classList.toggle('menu-open');
     }
 
-    // Клик по выбранной ссылке
-    if (targetElem.closest('.nav__link')) {
+    // Если клик на ссылке или любом другом месте
+    if (
+        targetElem.closest('.nav__link') ||
+        (!targetElem.closest('.nav__burger') && !targetElem.closest('.nav__list'))
+    ) {
         document.documentElement.classList.remove('menu-open');
     }
 
-    // Если клик на любом другом поле
-    if (!targetElem.closest('.nav__burger') && !targetElem.closest('.nav__list')) {
-        document.documentElement.classList.remove('menu-open');
+    // Клик на сервис__кнопке
+    if (targetElem.closest('.service__button')) {
+        targetElem.classList.toggle('active');
+        addFilterInstallation();
+    }
+
+    // Работа с дропменю в прайсах
+    if (targetElem.closest('.accordion__summary')) {
+        const accordionItems = document.querySelectorAll('.accordion__item');
+        if (!targetElem.parentElement.open) {
+            accordionItems.forEach((item) => {
+                item.open = false;
+            });
+        }
+    }
+
+    // Работа с дропменю в контактах
+    if (targetElem.closest('.selected')) {
+        document.querySelector('.options-container').classList.toggle('active');
+    }
+
+    if (targetElem.closest('.options-container label')) {
+        document.querySelector('.selected').innerHTML = targetElem.innerHTML;
+        document.querySelector('.options-container').classList.remove('active');
+        setAdress(targetElem.dataset.city);
     }
 };
 

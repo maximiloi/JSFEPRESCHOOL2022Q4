@@ -66,17 +66,17 @@
         @media (max-width: $mobile) {
             display: block;
             position: absolute;
+            top: -44px;
+            right: -350px;
             height: 398px;
             width: 250px;
             margin-top: 10px;
             padding-top: 10px;
-            top: -44px;
             background-color: rgba(214, 231, 210, 1);
-            transform: translateX(30%);
-            transition: all 1s ease-in-out;
+            transition: right 1s ease-in-out;
 
             .menu-open & {
-                transform: translateX(-60%);
+                right: -30px;
             }
         }
     }

@@ -11,7 +11,8 @@
             padding-bottom: 75px;
         }
         @media (max-width: $mobile) {
-            padding: 23px 77px 40px;
+            padding-top: 23px;
+            padding-bottom: 40px;
             flex-direction: column;
         }
     }
@@ -130,6 +131,10 @@
             font-size: 15px;
             line-height: 20px;
         }
+        &:hover {
+            color: $whiteColor;
+            background-color: $orangeColor;
+        }
     }
 }
 .accordion {
@@ -191,14 +196,12 @@
     details[open] > summary {
         border-radius: 20px;
         background: $greyGreenColor;
-        & span {
+        & svg {
+            fill: #aea1a1;
+            stroke: $whiteColor;
+            transition: fill ease 2s, stroke ease 2s;
             transform: rotate(180deg);
             transition: transform ease 1s;
-            & svg {
-                fill: #aea1a1;
-                stroke: $whiteColor;
-                transition: fill ease 2s, stroke ease 2s;
-            }
         }
         & + .accordion__content {
             border-radius: 20px;
@@ -254,8 +257,8 @@
     // .accordion__button
 
     &__button {
-        margin-top: 15px;
         padding: 3px 20px;
+        margin-top: 15px;
         background: $whiteColor;
         border-radius: 10px;
         font-size: 14px;
