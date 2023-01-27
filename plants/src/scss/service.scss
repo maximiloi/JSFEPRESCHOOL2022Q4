@@ -138,7 +138,7 @@
         }
         @media (max-width: $mobile) {
             margin: 0 auto;
-            width: 280px;
+            max-width: 280px;
             &:not(:last-child) {
                 margin-bottom: 35px;
             }

@@ -7,7 +7,7 @@ console.log('Ваша оценка - 125 баллов');
 console.log('');
 console.log('Выполненные пункты:');
 console.log(
-    '1) При выборе одной услуги (нажатии одной кнопки), остальные карточки услуг принимают эффект blur, выбранная услуга остается неизменной +20\n2) Пользователь может нажать одновременно две кнопки услуги, тогда эта кнопка тоже принимает стиль активной и карточки с именем услуги выходят из эффекта blur. При этом пользователь не может нажать одновременно все три кнопки услуг +20\n3) Анимации плавного перемещения кнопок в активное состояние и карточек услуг в эффект blur +10\n4) При нажатии на dropdown кнопку появляется описание тарифов цен в соответствии с макетом. Внутри реализована кнопка order, которая ведет на секцию contacts, при нажатии на нее Accordion все еще остается открытым + 25\n5) Пользователь может самостоятельно закрыть содержимое нажав на кнопку dropup, но не может одновременно открыть все тарифы услуг, при открытии нового тарифа предыдущее автоматически закрывается +25\n6) В зависимости от выбора пользователя появляется блок с адресом и телефоном офиса в определенном городе +15\n7) При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу +10'
+    '1) При выборе одной услуги (нажатии одной кнопки), остальные карточки услуг принимают эффект blur, выбранная услуга остается неизменной + 20\n2) Пользователь может нажать одновременно две кнопки услуги, тогда эта кнопка тоже принимает стиль активной и карточки с именем услуги выходят из эффекта blur. При этом пользователь не может нажать одновременно все три кнопки услуг. При повторном нажатии на активную кнопку она деактивируется (становится неактивной) а привязанные к ней позиции возвращаются в исходное состояние (входит в состяние blur если есть еще активная кнопка или же перестають быть в блюре если это была единственная нажатая кнопка). +20\n3) Анимации плавного перемещения кнопок в активное состояние и карточек услуг в эффект blur +10\n4) При нажатии на dropdown кнопку появляется описание тарифов цен в соответствии с макетом. Внутри реализована кнопка order, которая ведет на секцию contacts, при нажатии на нее Accordion все еще остается открытым. +25\n5) Пользователь может самостоятельно закрыть содержимое нажав на кнопку dropup, но не может одновременно открыть все тарифы услуг, при открытии нового тарифа предыдущее автоматически закрывается. +25\n6) В зависимости от выбора пользователя появляется блок с адресом и телефоном офиса в определенном городе +15\n7) При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу +10'
 );
 
 const ADRESSES_LIST = {
@@ -16,21 +16,16 @@ const ADRESSES_LIST = {
     yonkers: ['Yonkers, NY', '+1 914 678 0003', '511 Warburton Ave'],
     sherrill: ['Sherrill, NY', '+1 315 908 0004', '14 WEST Noyes BLVD'],
 };
-const contactsContainer = document.querySelector('.contacts__container');
 
 // Установка адреса в меню
 const setAdress = (city) => {
-    const adressBoxWrapper = document.querySelector('.adress-box');
-    const adressOutElem = adressBoxWrapper.querySelectorAll('.adress-box__item--out');
-    const adressButton = adressBoxWrapper.querySelector('.adress-box__button');
+    const contactsContainer = document.querySelector('.contacts__container');
+    const adressOutElem = contactsContainer.querySelectorAll('.adress-box__item--out');
+    const adressButton = contactsContainer.querySelector('.adress-box__button');
 
     let count = 0;
 
-    adressBoxWrapper.classList.add('active');
-
-    if (window.innerWidth < 700) {
-        contactsContainer.style.backgroundImage = 'none';
-    }
+    contactsContainer.classList.add('adress-active');
 
     for (const key in ADRESSES_LIST) {
         if (key === city) {
@@ -40,16 +35,6 @@ const setAdress = (city) => {
             });
             adressButton.href = `tel:${ADRESSES_LIST[key][1].split(' ').join('')}`;
         }
-    }
-};
-
-// Картинка обой в секции контакоты
-window.onresize = function () {
-    const adressBoxActive = document.querySelector('.contacts__adress');
-    if (adressBoxActive.closest('.active') && window.innerWidth < 700) {
-        contactsContainer.style.backgroundImage = 'none';
-    } else {
-        contactsContainer.style.backgroundImage = 'url("../img/bg-contact.png")';
     }
 };
 

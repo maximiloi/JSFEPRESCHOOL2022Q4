@@ -13,6 +13,9 @@
             padding: 0 40px;
             background-size: 100px 125px;
             background-position: calc(50%) calc(100%);
+            &.adress-active {
+                background-image: none;
+            }
         }
     }
 
@@ -103,7 +106,7 @@
 }
 
 .adress-box {
-    &.active {
+    .adress-active & {
         opacity: 1;
         transition: opacity 0.5s ease;
     }
@@ -126,9 +129,6 @@
         }
         &:nth-child(2) {
             color: #717171;
-            @media (max-width: $mobile) {
-                flex-shrink: 0;
-            }
         }
         @media (max-width: $mobile) {
             line-height: 20px;
@@ -162,6 +162,9 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    .adress-active & {
+        background: #c1e698;
+    }
 }
 
 .select-box .options-container {
