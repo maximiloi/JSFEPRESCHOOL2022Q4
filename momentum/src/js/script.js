@@ -1,6 +1,7 @@
 import { showTime } from './module/date.js';
 import {} from './module/slider.js';
 import {} from './module/weather.js';
+import {} from './module/quote.js';
 
 function init() {
     showTime();

@@ -7,8 +7,8 @@ const URL_IMAGES = 'https://raw.githubusercontent.com/maximiloi/stage1-tasks/ass
 const body = document.querySelector('body');
 const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
-const numMin = 1; // Минимальный номер в массивве фотографий
-const numMax = 20; // Максимальный номер в массивве фотографий
+const numMin = 1; // Минимальный номер в массиве фотографий
+const numMax = 20; // Максимальный номер в массиве фотографий
 
 let numberWallpaper = getRandomNum(numMin, numMax);
 
