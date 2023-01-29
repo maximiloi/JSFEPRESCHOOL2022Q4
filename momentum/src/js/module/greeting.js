@@ -18,7 +18,7 @@ export function getTimeOfDay() {
 }
 
 nameInput.addEventListener('focus', function () {
-    nameInput.placeholder = '';
+    nameInput.value = '';
 });
 
 nameInput.addEventListener('change', function () {
