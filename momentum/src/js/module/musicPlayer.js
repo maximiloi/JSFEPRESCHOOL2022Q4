@@ -4,6 +4,14 @@ const playBtn = document.querySelector('.play');
 const prevBtn = document.querySelector('.play-prev');
 const nextBtn = document.querySelector('.play-next');
 const playListOut = document.querySelector('.play-list');
+const trackNameOut = document.querySelector('.player-name');
+const trackTimeOut = document.querySelector('.player-time');
+const trackTotalTimeOut = document.querySelector('.player-total-time');
+
+// .player-duration {
+// }
+// .player-progress {
+// }
 
 let trackNumber = 0;
 const audio = new Audio();
@@ -52,6 +60,8 @@ function playPrev() {
         trackNumber -= 1;
         trackActive(trackNumber);
     }
+    playAudio(trackNumber);
+    playBtn.classList.add('pause');
 }
 
 function playNext() {
@@ -67,6 +77,8 @@ function playNext() {
         trackNumber += 1;
         trackActive(trackNumber);
     }
+    playAudio(trackNumber);
+    playBtn.classList.add('pause');
 }
 
 function toggleBtn() {

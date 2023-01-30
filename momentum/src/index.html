@@ -13,11 +13,25 @@
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-controls">
-        <audio src="https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3"></audio>
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+      <div class="player-wrapper">
+        <div class="player-inner">
+          <div class="player-controls">
+            <audio src="https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3"></audio>
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+          <div class="player-info">
+            <p class="player-name">Aqua Caelestis</p>
+            <div class="player-time">
+              <span class="player-current-time">0:00</span> / <span class="player-total-time">0:00</span>
+            </div>
+          </div>
+          <input type="range" class="player-duration" max="100" value="0">
+        </div>
+        <div class="player-inner">
+          <input type="range" class="player-volume" max="100" value="100">
+        </div>
       </div>
       <ul class="play-list"></ul>
     </div>
