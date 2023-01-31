@@ -360,7 +360,7 @@ input[type='range'] {
     width: 0; /* 1 */
     height: 10px;
     background: #fff;
-    box-shadow: -200px 0 0 200px dodgerblue; /* 2 */
+    box-shadow: -200px 0 0 200px #c5b358; /* 2 */
     /* border: 1px solid #fff; 1 */
 }
 
@@ -375,12 +375,12 @@ input[type='range'] {
     width: 10px;
     border: 1px solid #fff;
     border-radius: 0 !important;
-    box-shadow: -200px 0 0 200px dodgerblue;
+    box-shadow: -200px 0 0 200px #c5b358;
     box-sizing: border-box;
 }
 
 ::-ms-fill-lower {
-    background: dodgerblue;
+    background: #c5b358;
 }
 
 ::-ms-thumb {
