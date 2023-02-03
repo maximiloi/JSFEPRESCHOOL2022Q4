@@ -15,7 +15,7 @@ const audio = new Audio();
 
 let trackNumber = 0;
 let isPlay = false;
-let muteState = 'unmute';
+let isMute = false;
 
 export function generationPlaylist() {
     const playListElem = playList.reduce((acum, item) => {
@@ -50,7 +50,8 @@ function trackActive(num) {
 
 function playAudio(num) {
     audio.src = playList[num].src;
-    audio.currentTime = 0;
+    // audio.currentTime = 0;
+    audio.currentTime = durationSlider.value;
 
     if (!isPlay) {
         audio.play();
@@ -59,6 +60,8 @@ function playAudio(num) {
     } else {
         audio.pause();
         isPlay = false;
+
+        // durationSlider.value = 0;
     }
 }
 
@@ -75,7 +78,9 @@ function playPrev() {
         trackNumber -= 1;
         trackActive(trackNumber);
     }
+
     playAudio(trackNumber);
+    audio.currentTime = 0;
     playBtn.classList.add('pause');
 }
 
@@ -92,7 +97,9 @@ function playNext() {
         trackNumber += 1;
         trackActive(trackNumber);
     }
+
     playAudio(trackNumber);
+    audio.currentTime = 0;
     playBtn.classList.add('pause');
 }
 
@@ -101,12 +108,12 @@ function toggleBtn(btnName, className) {
 }
 
 function volumeMute() {
-    if (muteState === 'unmute') {
+    if (!isMute) {
         audio.muted = true;
-        muteState = 'mute';
+        isMute = true;
     } else {
         audio.muted = false;
-        muteState = 'unmute';
+        isMute = false;
     }
 }
 
@@ -145,7 +152,6 @@ audio.addEventListener('timeupdate', () => {
 });
 
 volumeSlider.addEventListener('input', (e) => {
-    // Управления громкостью
     const value = e.target.value;
     audio.volume = value / 100;
 });
