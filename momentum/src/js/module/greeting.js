@@ -1,9 +1,15 @@
+import { greetingTranslation, lng } from './translation.js';
+console.log('greetingTranslation: ', greetingTranslation.eng);
+
 const greetingOut = document.querySelector('.greeting');
 const nameInput = document.querySelector('.name');
 
+let lng1 = lng();
+
 export function showGreeting() {
     const timeOfDay = getTimeOfDay();
-    const greetingText = `Good ${timeOfDay},`;
+    const greetingText = `${greetingTranslation.lng1} ${timeOfDay},`;
+    console.log('greetingTranslation.lng1: ', greetingTranslation.lng1);
     greetingOut.textContent = greetingText;
 }
 
