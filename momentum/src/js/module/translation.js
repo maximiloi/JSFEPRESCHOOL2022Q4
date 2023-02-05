@@ -1,16 +1,27 @@
+import { getWeather, cityInput } from './weather.js';
+import { getQuotes } from './quote.js';
+
 const translationCheckbox = document.querySelector('.toggle-button-cover input');
 
-export const greetingTranslation = { eng: 'Good', rus: 'Доброго' };
-// console.log('greetingTranslation: ', greetingTranslation.eng);
+export const translationGreeting = {
+    eng: ['Good night', 'Good morning', 'Good afternoon', 'Good evening'],
+    rus: ['Доброй ночи', 'Доброе утро', 'Добрый день', 'Добрый вечер'],
+};
+export const languageForWeather = { eng: 'en', rus: 'ru' };
+export const translationWind = { eng: 'Wind speed', rus: 'Скорость ветра' };
+export const translationHumidity = { eng: 'Humidity', rus: 'Влажность' };
+export const translationWindSpeedUnits = { eng: 'm/s', rus: 'м/с' };
+export const languageForDate = { eng: 'en-EN', rus: 'ru-RU' };
+export const languageForQuote = { eng: 'https://type.fit/api/quotes', rus: 'assets/json/data-quote.json' };
 
-export function lng() {
+export function lng(text) {
     if (translationCheckbox.checked) {
-        return 'rus';
+        return text.rus;
     }
-    return 'eng';
+    return text.eng;
 }
 
 translationCheckbox.addEventListener('click', () => {
-    lng();
-    console.log('lng(): ', lng());
+    getWeather(cityInput.value);
+    getQuotes(lng(languageForQuote));
 });

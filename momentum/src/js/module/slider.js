@@ -24,9 +24,9 @@ function setBg(num) {
 
 function showBackgroud(num) {
     const img = new Image();
-    img.src = `${URL_IMAGES}${setBg(num)}.webp`;
+    img.src = `${URL_IMAGES}${setBg(num)}.jpg`;
     img.onload = () => {
-        body.style.backgroundImage = `url('${URL_IMAGES}${setBg(num)}.webp')`;
+        body.style.backgroundImage = `url('${URL_IMAGES}${setBg(num)}.jpg')`;
     };
 }
 

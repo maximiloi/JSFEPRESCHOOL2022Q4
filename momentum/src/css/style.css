@@ -321,8 +321,10 @@ input {
     flex: 1 0 80%;
 }
 .footer__wrapper:nth-child(3) {
+    display: flex;
     flex: 1 0 10%;
     align-self: flex-end;
+    justify-content: flex-end;
 }
 
 .change-quote {
@@ -465,7 +467,7 @@ input[type='range']:hover {
     /* top: 50%; */
     width: 74px;
     height: 36px;
-    margin: -18px auto 0 auto;
+    /* margin: -18px auto 0 auto; */
     overflow: hidden;
 }
 

@@ -1,10 +1,18 @@
+import {
+    lng,
+    languageForWeather,
+    translationWind,
+    translationHumidity,
+    translationWindSpeedUnits,
+} from './translation.js';
+
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const weatherError = document.querySelector('.weather-error');
 const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
-const cityInput = document.querySelector('.city');
+export const cityInput = document.querySelector('.city');
 
 let defaultCity = 'Minsk';
 
@@ -23,17 +31,19 @@ function setCity(event) {
     }
 }
 
-async function getWeather(city) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=003857592feb5ff0def8aa4fade433b5&units=metric`;
+export async function getWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lng(
+        languageForWeather
+    )}&appid=003857592feb5ff0def8aa4fade433b5&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
 
     if (data.cod === 200) {
         weatherIcon.className = `weather-icon owf owf-${data.weather[0].id}`;
-        temperature.textContent = `${rounding(data.main.temp)}°C`;
+        temperature.textContent = `${rounding(data.main.temp)}°C `;
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `Wind speed: ${rounding(data.wind.speed)} m/s`;
-        humidity.textContent = `Humidity: ${rounding(data.main.humidity)} %`;
+        wind.textContent = `${lng(translationWind)}: ${rounding(data.wind.speed)} ${lng(translationWindSpeedUnits)}`;
+        humidity.textContent = `${lng(translationHumidity)}: ${rounding(data.main.humidity)} %`;
         weatherError.textContent = ``;
     }
     if (data.cod != 200) {

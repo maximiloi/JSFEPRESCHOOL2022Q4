@@ -1,4 +1,5 @@
 import { showGreeting } from './greeting.js';
+import { lng, languageForDate } from './translation.js';
 
 const timeOut = document.querySelector('.time');
 const dateOut = document.querySelector('.date');
@@ -15,6 +16,8 @@ export function showTime() {
 function showDate() {
     const date = new Date();
     const options = { month: 'long', day: 'numeric', weekday: 'long' };
-    const currentDate = date.toLocaleDateString('en-EN', options);
+    const currentDate = date.toLocaleDateString(lng(languageForDate), options);
     dateOut.textContent = currentDate;
 }
+
+// 'en-EN'
