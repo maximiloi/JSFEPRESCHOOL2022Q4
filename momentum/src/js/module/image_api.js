@@ -1,6 +1,6 @@
+import { getRandomNum } from '../script.js';
 import { getTimeOfDay } from './greeting.js';
 import { showBackgroud, body } from './slider.js';
-import { getRandomNum } from '../script.js';
 
 const API_UNSPLASH_KEY = 'zdEkaNyxosOqQdRciqyzDDOY_u202OUB0FyIfaTFkcY';
 const API_FLICKR_KEY = 'd61240548aa4eadfdc660e27e7e5f4b4';
@@ -28,7 +28,6 @@ async function showBackgroudUnsplash() {
     imageUnsplashURL = await fetch(url)
         .then((res) => res.json())
         .then((data) => {
-            console.log('data.urls.regular: ', data.urls.regular);
             return data.urls.regular;
         });
 
@@ -44,7 +43,6 @@ async function showBackgroudFlickr() {
     imageFlickrURL = await fetch(url)
         .then((res) => res.json())
         .then((data) => {
-            console.log('data: ', data.photos);
             return data.photos.photo[getRandomNum(0, 100)].url_l;
         });
 

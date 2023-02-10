@@ -16,7 +16,7 @@ export function getTimeOfDay() {
 
 export function showGreeting() {
     // const timeOfDay = getTimeOfDay();
-    const greetingText = `${lng(translationGreeting)[index]},`;
+    const greetingText = `${lng(translationGreeting)[index]}, `;
     greetingOut.textContent = greetingText;
 }
 
@@ -38,4 +38,5 @@ function getLocalStorage() {
         nameInput.value = localStorage.getItem('name');
     }
 }
+
 window.addEventListener('load', getLocalStorage);
