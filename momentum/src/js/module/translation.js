@@ -1,7 +1,7 @@
 import { getWeather, cityInput } from './weather.js';
 import { getQuotes } from './quote.js';
 
-const translationCheckbox = document.querySelector('.toggle-button-cover input');
+const translationCheckbox = document.querySelector('#translation-checkbox');
 
 export const translationGreeting = {
     eng: ['Good night', 'Good morning', 'Good afternoon', 'Good evening'],

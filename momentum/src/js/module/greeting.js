@@ -15,7 +15,7 @@ export function getTimeOfDay() {
 }
 
 export function showGreeting() {
-    const timeOfDay = getTimeOfDay();
+    // const timeOfDay = getTimeOfDay();
     const greetingText = `${lng(translationGreeting)[index]},`;
     greetingOut.textContent = greetingText;
 }

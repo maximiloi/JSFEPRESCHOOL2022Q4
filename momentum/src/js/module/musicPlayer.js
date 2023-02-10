@@ -50,7 +50,6 @@ function trackActive(num) {
 
 function playAudio(num) {
     audio.src = playList[num].src;
-    // audio.currentTime = 0;
     audio.currentTime = durationSlider.value;
 
     if (!isPlay) {
@@ -60,8 +59,6 @@ function playAudio(num) {
     } else {
         audio.pause();
         isPlay = false;
-
-        // durationSlider.value = 0;
     }
 }
 
@@ -162,4 +159,17 @@ durationSlider.addEventListener('input', () => {
 
 durationSlider.addEventListener('change', () => {
     audio.currentTime = durationSlider.value;
+});
+
+playListOut.addEventListener('click', (event) => {
+    playList.forEach((track, i) => {
+        if (event.target.innerText === track.title) {
+            isPlay = false;
+            trackNumber = i;
+            toggleBtn(playBtn, 'pause');
+            playAudio(i);
+
+            console.log('track: ', track.title, i);
+        }
+    });
 });

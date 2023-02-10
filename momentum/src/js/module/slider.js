@@ -1,12 +1,13 @@
 import { getTimeOfDay } from './greeting.js';
+import { radioValue } from './image_api.js';
 import { getRandomNum } from '../script.js';
 
 // const URL_IMAGES = 'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/'; // old link
 const URL_IMAGES = 'https://raw.githubusercontent.com/maximiloi/stage1-tasks/assets/images/';
 
-const body = document.querySelector('body');
-const slidePrev = document.querySelector('.slide-prev');
-const slideNext = document.querySelector('.slide-next');
+export const body = document.querySelector('body');
+export const slidePrev = document.querySelector('.slide-prev');
+export const slideNext = document.querySelector('.slide-next');
 const numMin = 1; // Минимальный номер в массиве фотографий
 const numMax = 20; // Максимальный номер в массиве фотографий
 
@@ -22,7 +23,7 @@ function setBg(num) {
     return `${getTimeOfDay()}/${addZero(num)}`;
 }
 
-function showBackgroud(num) {
+export function showBackgroud(num) {
     const img = new Image();
     img.src = `${URL_IMAGES}${setBg(num)}.jpg`;
     img.onload = () => {
@@ -31,21 +32,25 @@ function showBackgroud(num) {
 }
 
 slidePrev.addEventListener('click', () => {
-    if (numberWallpaper > numMin) {
-        numberWallpaper -= numMin;
-        showBackgroud(numberWallpaper);
-    } else {
-        numberWallpaper = numMax;
-        showBackgroud(numberWallpaper);
+    if (radioValue() === 'github') {
+        if (numberWallpaper > numMin) {
+            numberWallpaper -= numMin;
+            showBackgroud(numberWallpaper);
+        } else {
+            numberWallpaper = numMax;
+            showBackgroud(numberWallpaper);
+        }
     }
 });
 
 slideNext.addEventListener('click', () => {
-    if (numberWallpaper < numMax) {
-        numberWallpaper += numMin;
-        showBackgroud(numberWallpaper);
-    } else {
-        numberWallpaper = numMin;
-        showBackgroud(numberWallpaper);
+    if (radioValue() === 'github') {
+        if (numberWallpaper < numMax) {
+            numberWallpaper += numMin;
+            showBackgroud(numberWallpaper);
+        } else {
+            numberWallpaper = numMin;
+            showBackgroud(numberWallpaper);
+        }
     }
 });
