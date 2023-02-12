@@ -7,9 +7,11 @@ const API_FLICKR_KEY = 'd61240548aa4eadfdc660e27e7e5f4b4';
 
 const toggleButtonCover = document.querySelector('.footer__api');
 const radioImageApis = document.querySelectorAll('.radio-image-api');
+const radioImageTagInput = document.querySelector('.radio-image-tag');
 const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
 
+let tag = '';
 let imageUnsplashURL = '';
 let imageFlickrURL = '';
 
@@ -23,8 +25,9 @@ export function radioValue() {
     return value;
 }
 
-async function showBackgroudUnsplash() {
-    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${getTimeOfDay()}&client_id=${API_UNSPLASH_KEY}`;
+async function showBackgroudUnsplash(tag = getTimeOfDay()) {
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tag}&client_id=${API_UNSPLASH_KEY}`;
+    console.log('url Unsplash: ', url);
     imageUnsplashURL = await fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -38,8 +41,9 @@ async function showBackgroudUnsplash() {
     };
 }
 
-async function showBackgroudFlickr() {
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_FLICKR_KEY}&tags=${getTimeOfDay()},nature&extras=url_l&format=json&nojsoncallback=1`;
+async function showBackgroudFlickr(tag = `${getTimeOfDay()},nature`) {
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_FLICKR_KEY}&tags=${tag}&extras=url_l&format=json&nojsoncallback=1`;
+    console.log('url Flickr: ', url);
     imageFlickrURL = await fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -59,28 +63,46 @@ toggleButtonCover.addEventListener('click', (event) => {
     let numberWallpaper = getRandomNum(1, 20);
 
     if (targetElement.value === 'github') {
+        radioImageTagInput.classList.remove('active');
         showBackgroud(numberWallpaper);
     } else if (targetElement.value === 'unsplash') {
-        showBackgroudUnsplash();
+        radioImageTagInput.classList.add('active');
+        showBackgroudUnsplash(radioImageTagInput.value ? radioImageTagInput.value : getTimeOfDay());
     } else if (targetElement.value === 'flickr') {
-        showBackgroudFlickr();
+        radioImageTagInput.classList.add('active');
+        showBackgroudFlickr(radioImageTagInput.value ? radioImageTagInput.value : `${getTimeOfDay()},nature`);
     }
 });
 
 slidePrev.addEventListener('click', () => {
     if (radioValue() === 'unsplash') {
-        showBackgroudUnsplash();
+        showBackgroudUnsplash(radioImageTagInput.value ? radioImageTagInput.value : getTimeOfDay());
     }
     if (radioValue() === 'flickr') {
-        showBackgroudFlickr();
+        showBackgroudFlickr(radioImageTagInput.value ? radioImageTagInput.value : `${getTimeOfDay()},nature`);
     }
 });
 
 slideNext.addEventListener('click', () => {
     if (radioValue() === 'unsplash') {
-        showBackgroudUnsplash();
+        showBackgroudUnsplash(radioImageTagInput.value ? radioImageTagInput.value : getTimeOfDay());
     }
     if (radioValue() === 'flickr') {
-        showBackgroudFlickr();
+        showBackgroudFlickr(radioImageTagInput.value ? radioImageTagInput.value : `${getTimeOfDay()},nature`);
+    }
+});
+
+radioImageTagInput.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+        tag = event.target.value.split(' ').join('');
+
+        if (radioValue() === 'unsplash') {
+            radioImageTagInput.classList.add('active');
+            showBackgroudUnsplash(tag);
+        } else if (radioValue() === 'flickr') {
+            radioImageTagInput.classList.add('active');
+            showBackgroudFlickr(tag);
+        }
+        return false;
     }
 });
