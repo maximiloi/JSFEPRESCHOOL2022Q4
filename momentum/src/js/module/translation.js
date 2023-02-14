@@ -2,6 +2,7 @@ import { getWeather, cityInput } from './weather.js';
 import { getQuotes } from './quote.js';
 
 const translationCheckbox = document.querySelector('#translation-checkbox');
+console.log('translationCheckbox: ', translationCheckbox);
 const apiTextOut = document.querySelector('.footer__text');
 
 const cityPlaceholderOut = document.querySelector('.city');
@@ -42,6 +43,7 @@ function translationPlaceholder() {
 }
 
 translationCheckbox.addEventListener('click', () => {
+    console.log('translationCheckbox: ', translationCheckbox);
     getWeather(cityInput.value);
     getQuotes(lng(languageForQuote));
     showTranslationApi();

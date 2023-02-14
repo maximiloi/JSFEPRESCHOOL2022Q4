@@ -807,12 +807,12 @@ label span:before {
     background-color: #ddd;
 }
 
-input[type='checkbox']:checked {
+.todo__task-box input[type='checkbox']:checked {
     background: #c5b358;
     color: rgba(255, 255, 255, 0.8);
 }
 
-input[type='checkbox'] {
+.todo__task-box input[type='checkbox'] {
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -825,7 +825,7 @@ input[type='checkbox'] {
     color: rgba(255, 255, 255, 0.8);
 }
 
-input[type='checkbox']:after {
+.todo__task-box input[type='checkbox']:after {
     content: ' ';
     position: relative;
     left: 39%;
@@ -838,6 +838,6 @@ input[type='checkbox']:after {
     display: none;
 }
 
-input[type='checkbox']:checked:after {
+.todo__task-box input[type='checkbox']:checked:after {
     display: block;
 }
