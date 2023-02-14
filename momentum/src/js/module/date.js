@@ -4,7 +4,7 @@ import { lng, languageForDate } from './translation.js';
 const timeOut = document.querySelector('.time');
 const dateOut = document.querySelector('.date');
 
-export function showTime() {
+export default function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
     timeOut.textContent = currentTime;
@@ -19,5 +19,3 @@ function showDate() {
     const currentDate = date.toLocaleDateString(lng(languageForDate), options);
     dateOut.textContent = currentDate;
 }
-
-// 'en-EN'

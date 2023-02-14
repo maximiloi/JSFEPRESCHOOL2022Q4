@@ -36,6 +36,11 @@ input {
     overflow: visible;
 }
 
+ul,
+li {
+    list-style: none;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -314,6 +319,10 @@ input {
     padding: 20px;
 }
 
+.footer__todo {
+    cursor: pointer;
+}
+
 .radio-image-tag {
     width: 100%;
     height: 0;
@@ -324,7 +333,7 @@ input {
     text-align: left;
     color: #fff;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 2px;
     outline: 0;
     transition: height 0.3s ease, padding 0.3s ease;
@@ -341,7 +350,10 @@ input {
 }
 
 .footer__wrapper:nth-child(1) {
+    position: relative;
     flex: 1 0 10%;
+    margin: auto 0 0 0;
+    text-align: left;
 }
 .footer__wrapper:nth-child(2) {
     flex: 1 0 80%;
@@ -655,4 +667,177 @@ label span:before {
     margin-right: 0.375em;
     transition: 0.25s ease;
     box-shadow: inset 0 0 0 0.125em #c5b358;
+}
+
+.todo__wrapper {
+    position: absolute;
+    bottom: 25px;
+    /* height: 0; */
+    color: #4e4e4e;
+    transform-origin: bottom left;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.todo__wrapper.active {
+    position: absolute;
+    max-width: 400px;
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 20px 0;
+}
+
+.todo__input {
+    display: flex;
+    height: 30px;
+    padding: 0 20px;
+}
+
+.todo__text {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.todo__controls,
+.todo__task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo__controls {
+    padding: 20px 20px;
+    width: 350px;
+    border-bottom: 1px solid gray;
+}
+
+.todo__filter span {
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.todo__filter span:first-child {
+    margin-left: 0;
+}
+
+.todo__filter span.active {
+    color: #c5b358;
+}
+
+.todo__controls button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 4px 8px;
+}
+
+.todo__task-box {
+    margin: 20px 20px 0 20px;
+}
+
+.todo__task {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.todo__task:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.todo__task label input {
+    position: relative;
+    left: 0;
+    margin-right: 10px;
+}
+
+.todo__task label p.checked {
+    text-decoration: line-through;
+}
+
+.task__setting {
+    position: relative;
+}
+
+.task__setting--point {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.task__menu {
+    position: absolute;
+    right: -5px;
+    bottom: -40px;
+    z-index: 1;
+    padding: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    transform-origin: top right;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.task__setting .task__menu.open {
+    transform: scale(1);
+}
+
+.task__menu li {
+    cursor: pointer;
+    height: 25px;
+    line-height: 25px;
+    padding: 2px 10px;
+    margin-bottom: 2px;
+}
+
+.task__menu li:last-child {
+    margin-bottom: 0;
+}
+
+.task__menu li:hover {
+    background-color: #ddd;
+}
+
+input[type='checkbox']:checked {
+    background: #c5b358;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: transparent;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input[type='checkbox']:after {
+    content: ' ';
+    position: relative;
+    left: 39%;
+    top: 18%;
+    width: 15%;
+    height: 40%;
+    border: solid rgba(255, 255, 255, 0.8);
+    border-width: 0 2px 2px 0;
+    transform: rotate(50deg);
+    display: none;
+}
+
+input[type='checkbox']:checked:after {
+    display: block;
 }

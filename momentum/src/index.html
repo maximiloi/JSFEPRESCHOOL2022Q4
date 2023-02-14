@@ -63,6 +63,22 @@
   </main>
   <footer class="footer">
     <div class="footer__wrapper">
+      <span class="footer__todo todo">Todo</span>
+      <div class="todo__wrapper">
+        <div class="todo__input">
+          <input type="text" class="todo__text" placeholder="[Enter new task]">
+        </div>
+        <div class="todo__controls">
+          <div class="todo__filter">
+            <span class="todo__filter--all active">All</span>
+            <span class="todo__filter--pending">Pending</span>
+            <span class="todo__filter--completed">Completed</span>
+          </div>
+          <button class="todo__icon  clear">Clear All</button>
+        </div>
+        <ul class="todo__task-box"></ul>
+      </div>
+
     </div>
     <div class="footer__wrapper">
       <button class="change-quote"></button>
