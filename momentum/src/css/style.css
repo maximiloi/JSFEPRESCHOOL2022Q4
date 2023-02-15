@@ -717,7 +717,7 @@ label span:before {
 }
 
 .todo__filter span {
-    margin: 0 8px;
+    margin: 0 5px;
     cursor: pointer;
 }
 
@@ -757,6 +757,10 @@ label span:before {
     position: relative;
     left: 0;
     margin-right: 10px;
+}
+
+.todo__task label p {
+    max-width: 270px;
 }
 
 .todo__task label p.checked {

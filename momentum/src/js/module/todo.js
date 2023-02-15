@@ -1,4 +1,5 @@
-// const todoButton = document.querySelector('.todo');
+import { lng, translationNoTask, translationEdit, translationDelete } from './translation.js';
+
 const todoWrapper = document.querySelector('.todo__wrapper');
 const todoTextInput = document.querySelector('.todo__text');
 const filters = document.querySelectorAll('.todo__filter span');
@@ -24,15 +25,18 @@ function showTodo(filter) {
                             <div class="task__setting">
                                 <span class="task__setting--point">...</span>
                                 <ul class="task__menu">
-                                    <li class="task--edit">edit</li>
-                                    <li class="task--delete">delete</li>
+                                    <li class="task--edit">${lng(translationEdit)}</li>
+                                    <li class="task--delete">${lng(translationDelete)}</li>
                                 </ul>
                             </div>
                         </li>`;
             }
         });
     }
-    todoTaskBox.innerHTML = li || `<span>You don't have any task here</span>`;
+    todoTaskBox.innerHTML = li || `<span class="task__no-item">${lng(translationNoTask)}</span>`;
+    // todoTaskBox.innerHTML = li || `<span class="task__no-item">You don&apos;t have any task here</span>`;
+    // <li class="task--edit">edit</li>
+    // <li class="task--delete">delete</li>
 }
 
 document.addEventListener('click', function (event) {
@@ -96,7 +100,7 @@ document.addEventListener('click', function (event) {
             item.classList.remove('active');
         });
         targetElement.classList.add('active');
-        showTodo(targetElement.innerText.toLowerCase());
+        showTodo(targetElement.dataset.filter);
     }
 
     localStorage.setItem('todo-list', JSON.stringify(todos));
