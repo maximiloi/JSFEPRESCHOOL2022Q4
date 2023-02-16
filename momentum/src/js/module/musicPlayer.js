@@ -1,4 +1,4 @@
-import playList from '../../assets/json/playList.js';
+import playList from './playList.js';
 
 const playBtn = document.querySelector('.play');
 const prevBtn = document.querySelector('.play-prev');
@@ -168,8 +168,6 @@ playListOut.addEventListener('click', (event) => {
             trackNumber = i;
             toggleBtn(playBtn, 'pause');
             playAudio(i);
-
-            console.log('track: ', track.title, i);
         }
     });
 });

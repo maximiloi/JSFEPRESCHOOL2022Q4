@@ -75,7 +75,7 @@ module.exports = ({ development }) => {
     const pages = getPages(srcPath, 1);
     return {
         mode: development ? 'development' : 'production',
-        devtool: development ? 'inline-source-map' : true,
+        devtool: development ? 'inline-source-map' : false,
         entry: getEntryPoints(pages),
         context: srcPath,
         output: {
@@ -88,15 +88,15 @@ module.exports = ({ development }) => {
             rules: [
                 {
                     test: /\.(?:ico|gif|png|jpg|jpeg|svg|webp)$/i,
-                    type: 'asset/resource',
+                    type: 'asset',
                 },
                 {
                     test: /\.(?:mp3|wav|ogg|mp4)$/i,
-                    type: 'asset/resource',
+                    type: 'asset',
                 },
                 {
                     test: /\.(woff(2)?|eot|ttf|otf)$/i,
-                    type: 'asset/resource',
+                    type: 'asset',
                 },
                 {
                     test: /\.css$/i,
