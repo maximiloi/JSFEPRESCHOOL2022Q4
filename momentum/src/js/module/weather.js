@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
 cityInput.addEventListener('keypress', setCity);
 cityInput.addEventListener('change', setLocalStorage);
 window.addEventListener('beforeunload', setLocalStorage);
-
 cityInput.addEventListener('click', function () {
     cityInput.value = '';
 });

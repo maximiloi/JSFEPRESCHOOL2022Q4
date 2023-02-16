@@ -17,7 +17,7 @@ let trackNumber = 0;
 let isPlay = false;
 let isMute = false;
 
-export function generationPlaylist() {
+function generationPlaylist() {
     const playListElem = playList.reduce((acum, item) => {
         acum += `<li class="play-item">${item.title}</li>`;
         return acum;
@@ -25,6 +25,8 @@ export function generationPlaylist() {
 
     playListOut.innerHTML = playListElem;
 }
+
+generationPlaylist();
 
 function calculateTime(secs) {
     const minutes = Math.floor(secs / 60);

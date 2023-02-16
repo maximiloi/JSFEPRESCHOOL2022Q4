@@ -17,5 +17,5 @@ function showDate() {
     const date = new Date();
     const options = { month: 'long', day: 'numeric', weekday: 'long' };
     const currentDate = date.toLocaleDateString(lng(languageForDate), options);
-    dateOut.textContent = currentDate;
+    dateOut.textContent = currentDate[0].toUpperCase() + currentDate.slice(1);
 }

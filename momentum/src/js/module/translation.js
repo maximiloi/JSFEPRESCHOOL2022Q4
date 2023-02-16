@@ -1,3 +1,4 @@
+import showTime from './date.js';
 import { getWeather, cityInput } from './weather.js';
 import { getQuotes } from './quote.js';
 
@@ -35,6 +36,17 @@ export const translationNoTask = { eng: 'You don&apos;t have any task here', rus
 export const translationEdit = { eng: 'edit', rus: 'изменить' };
 export const translationDelete = { eng: 'delete', rus: 'удалить' };
 
+function lngCheckbox() {
+    if (translationCheckbox.checked) {
+        return 'rus';
+    }
+    return 'eng';
+}
+
+function setLocalStorage() {
+    localStorage.setItem('language', lngCheckbox());
+}
+
 export function lng(text) {
     if (translationCheckbox.checked) {
         return text.rus;
@@ -68,10 +80,26 @@ function translationPlaceholder() {
     todoTextPlaceholderOut.placeholder = lng(translationTodoTextPlaceholder);
 }
 
-translationCheckbox.addEventListener('click', () => {
+function translationСontent() {
+    showTime();
     getWeather(cityInput.value);
     getQuotes(lng(languageForQuote));
     showTranslationApi();
     translationPlaceholder();
     translationTodo();
+}
+
+translationCheckbox.addEventListener('click', () => {
+    setLocalStorage();
+    translationСontent();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('language') === 'rus') {
+        translationCheckbox.checked = true;
+        translationСontent();
+    } else {
+        translationCheckbox.checked = false;
+        translationСontent();
+    }
 });
