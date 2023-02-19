@@ -12,7 +12,7 @@
 
 <body>
   <header class="header">
-    <div class="player">
+    <div class="player  music-player__wrapper">
       <div class="player-wrapper">
         <div class="player-inner">
           <div class="player-controls">
@@ -37,7 +37,7 @@
       </div>
       <ul class="play-list"></ul>
     </div>
-    <div class="weather">
+    <div class="weather  weather__wrapper">
       <input type="text" class="city" placeholder="[Enter city]">
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
@@ -54,33 +54,49 @@
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
     </div>
-    <time class="time"></time>
-    <date class="date"></date>
-    <div class="greeting-container">
+    <div class="date-and-time__wrapper">
+      <time class="time"></time>
+      <date class="date"></date>
+    </div>
+    <div class="greeting-container  greeting__wrapper">
       <span class="greeting"></span>
       <input type="text" class="name" placeholder="[Enter name]">
     </div>
   </main>
   <footer class="footer">
     <div class="footer__wrapper">
-      <span class="footer__todo todo">Todo</span>
       <div class="todo__wrapper">
-        <div class="todo__input">
-          <input type="text" class="todo__text" placeholder="[Enter new task]">
-        </div>
-        <div class="todo__controls">
-          <div class="todo__filter">
-            <span class="todo__filter--all active" data-filter="all">All</span>
-            <span class="todo__filter--pending" data-filter="pending">Pending</span>
-            <span class="todo__filter--completed" data-filter="completed">Completed</span>
+        <span class="footer__todo todo">Todo</span>
+        <div class="todo__inner">
+          <div class="todo__input">
+            <input type="text" class="todo__text" placeholder="[Enter new task]">
           </div>
-          <button class="todo__icon  clear">Clear All</button>
+          <div class="todo__controls">
+            <div class="todo__filter">
+              <span class="todo__filter--all active" data-filter="all">All</span>
+              <span class="todo__filter--pending" data-filter="pending">Pending</span>
+              <span class="todo__filter--completed" data-filter="completed">Completed</span>
+            </div>
+            <button class="todo__icon  clear">Clear All</button>
+          </div>
+          <ul class="todo__task-box"></ul>
         </div>
-        <ul class="todo__task-box"></ul>
       </div>
-
+      <div class="pomodoro__wrapper">
+        <span class="footer__pomodoro pomodoro">Pomodoro</span>
+        <div class="pomodoro__inner">
+          <h2 class="clock-title">Pomodoro Session</h2>
+          <div class="clock session-clock"></div>
+          <div>
+            <button type="button" class="btn btn-lg btn-edit" id="btn-reduce-session-minute">-</button>
+            <button type="button" class="btn btn-lg btn-edit margin-right" id="btn-increase-session-minute">+</button>
+            <button type="button" class="btn btn-lg btn-edit" id="btn-reduce-session-second">-</button>
+            <button type="button" class="btn btn-lg btn-edit" id="btn-increase-session-second">+</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer__wrapper">
+    <div class="footer__wrapper  quotes__wrapper">
       <button class="change-quote"></button>
       <div>
         <div class="quote"></div>
@@ -88,7 +104,7 @@
       </div>
     </div>
     <div class="footer__wrapper  toggle-button-cover">
-      <div class="footer__inner">
+      <div class="api-images__wrapper">
         <span class="footer__text"></span>
         <div class="footer__api">
           <label>
@@ -107,12 +123,107 @@
         </div>
       </div>
       <hr>
-      <div class="button-cover">
-        <div class="button button-checkbox b2">
-          <input type="checkbox" class="checkbox" id="translation-checkbox">
-          <div class="knobs">
-            <span>ENG</span>
+      <div class="footer__inner">
+        <div class="button-cover">
+          <div class="button button-checkbox b2">
+            <input type="checkbox" class="checkbox" id="translation-checkbox">
+            <div class="knobs">
+              <span>ENG</span>
+            </div>
           </div>
+        </div>
+        <div class="footer__setting">
+          <button class="setting-icon"></button>
+          <ul class="setting__wrapper">
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="music-player">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Music Player</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="weather">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Weather</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="date-and-time">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Date and Time</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="greeting">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Greeting</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="quotes">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Quotes</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="todo">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Todo</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="pomodoro">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>Pomodoro</p>
+            </li>
+            <li class="setting__checkbox">
+              <div class="button-cover">
+                <div class="button button-checkbox b2">
+                  <input type="checkbox" class="checkbox  checkbox__setting" id="api-images">
+                  <div class="knobs">
+                    <span>on</span>
+                  </div>
+                </div>
+              </div>
+              <p>API images</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

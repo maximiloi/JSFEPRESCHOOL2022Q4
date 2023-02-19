@@ -1,6 +1,6 @@
 import { lng, translationNoTask, translationEdit, translationDelete } from './translation.js';
 
-const todoWrapper = document.querySelector('.todo__wrapper');
+const todoWrapper = document.querySelector('.todo__inner');
 const todoTextInput = document.querySelector('.todo__text');
 const filters = document.querySelectorAll('.todo__filter span');
 const todoTaskBox = document.querySelector('.todo__task-box');
