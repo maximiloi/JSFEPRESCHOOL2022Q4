@@ -326,12 +326,15 @@ li {
     padding: 20px;
 }
 
+.todo__wrapper {
+    margin-right: 10px;
+}
+
 .footer__todo {
     cursor: pointer;
 }
 
 .footer__pomodoro {
-    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -715,9 +718,11 @@ label span:before {
 }
 
 .todo__inner,
+.pomodoro__inner,
 .setting__wrapper {
     position: absolute;
     bottom: 25px;
+    overflow: hidden;
     /* height: 0; */
     color: #4e4e4e;
     transform-origin: bottom left;
@@ -726,6 +731,7 @@ label span:before {
 }
 
 .todo__inner.active,
+.pomodoro__inner.active,
 .setting__wrapper.active {
     position: absolute;
     transform: scale(1);
@@ -736,6 +742,10 @@ label span:before {
 
 .todo__inner.active {
     max-width: 400px;
+}
+
+.pomodoro__inner.active {
+    padding: 20px;
 }
 
 .setting__wrapper {
@@ -950,6 +960,114 @@ label span:before {
 
 .todo__task-box input[type='checkbox']:checked:after {
     display: block;
+}
+
+:root {
+    --pomodoro: hsl(223, 25%, 40%);
+    --shortBreak: hsl(48, 23%, 40%);
+    --longBreak: hsl(105, 16%, 40%);
+}
+
+body {
+    background-color: var(--pomodoro);
+    transition: background-color 1s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    user-select: none;
+}
+
+progress {
+    border-radius: 2px;
+    width: 100%;
+    height: 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+progress::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.timer {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px; */
+    text-align: center;
+}
+
+.clock {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 10rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-family: arial, sans-serif;
+}
+
+.mode-button {
+    font-size: 16px;
+    height: 28px;
+    width: auto;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: 300;
+    color: #fff;
+    border: 1px solid transparent;
+    margin: 0px;
+    border-radius: 4px;
+    padding: 2px 12px;
+    background: none;
+}
+
+.mode-button.active {
+    border-color: #fff;
+}
+
+.main-button {
+    cursor: pointer;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    text-transform: uppercase;
+    color: hsl(175, 26%, 41%);
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    border-width: initial;
+    border-style: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    transition: color 0.5s ease-in-out 0s;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+
+.main-button.active {
+    transform: translateY(6px);
+    box-shadow: none;
+    outline: none;
+}
+
+.pomodoro__hidden {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    .clock {
+        font-size: 8rem;
+    }
 }
 
 @media (max-width: 768px) {

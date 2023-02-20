@@ -85,13 +85,28 @@
       <div class="pomodoro__wrapper">
         <span class="footer__pomodoro pomodoro">Pomodoro</span>
         <div class="pomodoro__inner">
-          <h2 class="clock-title">Pomodoro Session</h2>
-          <div class="clock session-clock"></div>
-          <div>
-            <button type="button" class="btn btn-lg btn-edit" id="btn-reduce-session-minute">-</button>
-            <button type="button" class="btn btn-lg btn-edit margin-right" id="btn-increase-session-minute">+</button>
-            <button type="button" class="btn btn-lg btn-edit" id="btn-reduce-session-second">-</button>
-            <button type="button" class="btn btn-lg btn-edit" id="btn-increase-session-second">+</button>
+          <progress id="js-progress" value="0"></progress>
+          <div class="progress-bar"></div>
+          <div class="timer">
+            <div class="button-group mode-buttons" id="js-mode-buttons">
+              <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                Pomodoro
+              </button>
+              <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                Short break
+              </button>
+              <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+                Long break
+              </button>
+            </div>
+            <div class="clock" id="js-clock">
+              <span id="js-minutes">25</span>
+              <span class="separator">:</span>
+              <span id="js-seconds">00</span>
+            </div>
+            <button class="main-button" data-action="start" id="js-btn">
+              Start
+            </button>
           </div>
         </div>
       </div>
@@ -228,7 +243,11 @@
       </div>
     </div>
   </footer>
-
+  <div class="pomodoro__hidden">
+    <audio src="./assets/sounds/pomodoro_backtowork.mp3" data-sound="pomodoro"></audio>
+    <audio src="./assets/sounds/pomodoro_break.mp3" data-sound="shortBreak"></audio>
+    <audio src="./assets/sounds/pomodoro_break.mp3" data-sound="longBreak"></audio>
+  </div>
 </body>
 
 </html>

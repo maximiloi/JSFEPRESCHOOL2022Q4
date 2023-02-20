@@ -1,6 +1,7 @@
 import {} from './module/slider.js';
 import {} from './module/musicPlayer.js';
 import {} from './module/todo.js';
+import {} from './module/pomodoro.js';
 import {} from './module/setting.js';
 // import showTime from './module/date.js';
 // import {} from './module/weather.js';
