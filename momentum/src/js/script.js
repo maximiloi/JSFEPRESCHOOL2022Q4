@@ -20,3 +20,7 @@ export function getRandomNum(min, max) {
 // }
 
 // init();
+
+console.log(
+    'self-check: https://rolling-scopes-school.github.io/maximiloi-JSFEPRESCHOOL2022Q4/momentum/momentum/README.md'
+);
