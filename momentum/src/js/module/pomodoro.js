@@ -1,3 +1,5 @@
+import audioSrc from '../../assets/sounds/pomodoro_button-sound.mp3';
+
 const timer = {
     pomodoro: 25,
     shortBreak: 5,
@@ -8,7 +10,7 @@ const timer = {
 const pomodoroWrapper = document.querySelector('.pomodoro__inner');
 const modeButtons = document.querySelector('#js-mode-buttons');
 const mainButton = document.getElementById('js-btn');
-const buttonSound = new Audio('../../assets/sounds/pomodoro_button-sound.mp3');
+const buttonSound = new Audio(audioSrc);
 
 let interval;
 
@@ -34,7 +36,7 @@ function startTimer() {
     if (timer.mode === 'pomodoro') timer.sessions++;
 
     mainButton.dataset.action = 'stop';
-    mainButton.textContent = 'stop';
+    mainButton.textContent = 'pause';
     mainButton.classList.add('active');
 
     interval = setInterval(function () {
@@ -57,6 +59,7 @@ function startTimer() {
                     switchMode('pomodoro');
             }
 
+            document.querySelector(`[data-sound="${timer.mode}"]`).play();
             startTimer();
         }
     }, 1000);
@@ -99,9 +102,9 @@ function switchMode(mode) {
 
     document.querySelectorAll('button[data-mode]').forEach((e) => e.classList.remove('active'));
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-    pomodoroWrapper.style.backgroundColor = `var(--${mode})`;
     document.getElementById('js-progress').setAttribute('max', timer.remainingTime.total);
-    document.querySelector(`[data-sound="${timer.mode}"]`).play();
+
+    pomodoroWrapper.style.backgroundColor = `var(--${mode})`;
 
     updateClock();
 }
