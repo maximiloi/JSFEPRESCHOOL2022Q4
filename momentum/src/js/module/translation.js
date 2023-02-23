@@ -68,7 +68,7 @@ export function translationTodo() {
     todoFilterPendingOut.innerText = lng(translationTodoFilterPending);
     todoFilterCompletedOut.innerText = lng(translationTodoFilterCompleted);
     todoClearOut.innerText = lng(translationTodoClearCompleted);
-    taskNoItemOut.innerText = lng(translationNoTask);
+    taskNoItemOut.innerHTML = lng(translationNoTask);
     // taskEditOut.innerText = lng(translationEdit);
     // taskDeleteOut.innerText = lng(translationDelete);
 }
