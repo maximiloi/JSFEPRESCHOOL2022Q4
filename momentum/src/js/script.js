@@ -4,7 +4,7 @@ import {} from './module/todo.js';
 import {} from './module/pomodoro.js';
 import {} from './module/setting.js';
 import showTime from './module/date.js';
-import { getWeather } from './module/weather.js';
+import { cityInput, getWeather } from './module/weather.js';
 import { getQuotes } from './module/quote.js';
 import { lng, languageForQuote, showTranslationApi } from './module/translation.js';
 
@@ -20,6 +20,8 @@ export function init() {
     // generationPlaylist();
     getQuotes(lng(languageForQuote));
     showTranslationApi();
+
+    cityInput.value = defaultCity;
 }
 
 init();
