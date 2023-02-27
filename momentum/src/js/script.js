@@ -4,9 +4,11 @@ import {} from './module/todo.js';
 import {} from './module/pomodoro.js';
 import {} from './module/setting.js';
 import showTime from './module/date.js';
-import {} from './module/weather.js';
+import { getWeather } from './module/weather.js';
 import { getQuotes } from './module/quote.js';
 import { lng, languageForQuote, showTranslationApi } from './module/translation.js';
+
+let defaultCity = 'Minsk';
 
 export function getRandomNum(min, max) {
     return Math.floor(Math.random() * max) + min;
@@ -14,6 +16,7 @@ export function getRandomNum(min, max) {
 
 export function init() {
     showTime();
+    getWeather(defaultCity);
     // generationPlaylist();
     getQuotes(lng(languageForQuote));
     showTranslationApi();
