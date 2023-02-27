@@ -105,6 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
         translationСontent();
     }
 
-    localStorage.setItem('language', 'eng');
-    translationСontent();
+    // localStorage.setItem('language', 'eng');
+    // translationСontent();
 });
