@@ -94,6 +94,8 @@ translationCheckbox.addEventListener('click', () => {
     translationСontent();
 });
 
+// translationСontent();
+
 document.addEventListener('DOMContentLoaded', function () {
     if (localStorage.getItem('language') === 'rus') {
         translationCheckbox.checked = true;
@@ -102,4 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         translationCheckbox.checked = false;
         translationСontent();
     }
+
+    localStorage.setItem('language', 'eng');
+    translationСontent();
 });
