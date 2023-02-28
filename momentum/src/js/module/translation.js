@@ -80,7 +80,7 @@ function translationPlaceholder() {
     todoTextPlaceholderOut.placeholder = lng(translationTodoTextPlaceholder);
 }
 
-function translationСontent() {
+export function translationСontent() {
     showTime();
     getWeather(cityInput.value);
     getQuotes(lng(languageForQuote));
@@ -95,6 +95,7 @@ translationCheckbox.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('перевод');
     if (localStorage.getItem('language') === 'rus') {
         translationCheckbox.checked = true;
         translationСontent();

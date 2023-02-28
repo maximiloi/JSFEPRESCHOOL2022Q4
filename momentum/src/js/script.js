@@ -1,8 +1,8 @@
-import {} from './module/slider.js';
-import {} from './module/musicPlayer.js';
-import {} from './module/todo.js';
-import {} from './module/pomodoro.js';
-import {} from './module/setting.js';
+import { } from './module/slider.js';
+import { } from './module/musicPlayer.js';
+import { } from './module/todo.js';
+import { } from './module/pomodoro.js';
+import { getLocalStorageCheckboxSetting } from './module/setting.js';
 import showTime from './module/date.js';
 import { cityInput, getWeather } from './module/weather.js';
 import { getQuotes } from './module/quote.js';
@@ -17,9 +17,9 @@ export function getRandomNum(min, max) {
 export function init() {
     showTime();
     getWeather(defaultCity);
-    // generationPlaylist();
     getQuotes(lng(languageForQuote));
     showTranslationApi();
+    getLocalStorageCheckboxSetting();
 
     cityInput.value = defaultCity;
 }

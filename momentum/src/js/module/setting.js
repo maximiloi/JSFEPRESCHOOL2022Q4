@@ -34,7 +34,7 @@ function setLocalStorageCheckboxSetting() {
     localStorage.setItem('setting', JSON.stringify(settingArray));
 }
 
-function getLocalStorageCheckboxSetting() {
+export function getLocalStorageCheckboxSetting() {
     let settingArray = JSON.parse(localStorage.getItem('setting'));
     checkboxSetting.forEach((item) => {
         let itemId = item.id;
